@@ -1,0 +1,164 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EL UMBRAL</title>
+
+  <!-- ADSENSE (cambia el ID cuando lo tengas) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX"
+    crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: linear-gradient(180deg, black, #12061c);
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 50px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: gold;
+    }
+
+    .box {
+      border: 1px solid #444;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 10px;
+      background: #0f0b14;
+    }
+
+    input {
+      padding: 10px;
+      width: 250px;
+      border-radius: 5px;
+      border: none;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .btn-gold {
+      background: gold;
+      color: black;
+    }
+
+    .btn-green {
+      background: green;
+      color: white;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: gold;
+      border: 1px solid gold;
+    }
+
+    #premium {
+      display: none;
+    }
+
+    #error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>EL UMBRAL</h1>
+  <p>Misterio, OVNI y conocimiento oculto</p>
+
+  <!-- ANUNCIO -->
+  <div class="box">
+    ESPACIO PARA ADSENSE
+  </div>
+
+  <!-- CONTENIDO -->
+  <div class="box">
+    <h2>Expediente OVNI</h2>
+    <p>
+      Un objeto luminoso fue visto sobre un monasterio antiguo durante varios minutos sin emitir sonido alguno...
+    </p>
+  </div>
+
+  <!-- SUSCRIPCIÓN -->
+  <div class="box">
+    <h3>Suscríbete</h3>
+    <input type="email" placeholder="Tu email">
+    <br>
+    <button class="btn-gold">Suscribirme</button>
+  </div>
+
+  <!-- PREMIUM -->
+  <div class="box">
+
+    <div id="bloque-pago">
+      <h2>Zona Premium</h2>
+      <p>Accede a contenido exclusivo</p>
+
+      <button class="btn-green" onclick="irPago()">
+        Acceso VIP - 5€
+      </button>
+
+      <br><br>
+
+      <input id="codigo" placeholder="Código premium">
+      <br>
+      <button class="btn-outline" onclick="desbloquear()">
+        Desbloquear
+      </button>
+
+      <p id="error"></p>
+    </div>
+
+    <div id="premium">
+      <h3>Contenido desbloqueado</h3>
+      <p>Archivo secreto OVNI completo con información ampliada...</p>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+function irPago() {
+  window.location.href = "https://buy.stripe.com/test_xxx";
+}
+
+function desbloquear() {
+  let codigo = document.getElementById("codigo").value;
+
+  if (codigo === "VIP-UMBRAL-2026") {
+    document.getElementById("premium").style.display = "block";
+    document.getElementById("bloque-pago").style.display = "none";
+  } else {
+    document.getElementById("error").innerText = "Código incorrecto";
+  }
+}
+</script>
+
+</body>
+</html>
