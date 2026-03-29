@@ -5,58 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EL UMBRAL</title>
 
-  <!-- ADSENSE (cambia el ID cuando lo tengas) -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX"
-    crossorigin="anonymous"></script>
-
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Georgia, serif;
       background: url('https://images.unsplash.com/photo-1502134249126-9f3755a50d78?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
       background-size: cover;
       color: white;
-      text-align: center;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.68);
+      min-height: 100vh;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 1100px;
       margin: auto;
       padding: 20px;
     }
 
-    h1 {
-      font-size: 50px;
-      margin-bottom: 10px;
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    h2 {
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: gold;
+      letter-spacing: 2px;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+
+    .menu a:hover {
       color: gold;
     }
 
-    .box {
-      border: 1px solid #444;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 10px;
-      background: rgba(15, 11, 20, 0.88);
+    .hero {
+      text-align: center;
+      padding: 70px 20px 40px;
     }
 
-    input {
-      padding: 10px;
-      width: 250px;
-      border-radius: 5px;
-      border: none;
-      margin-top: 10px;
+    .hero h1 {
+      font-size: 56px;
+      margin-bottom: 10px;
     }
 
-    button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
+    .hero p {
+      font-size: 20px;
+      color: #ddd;
+      max-width: 750px;
+      margin: auto;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      margin-top: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 8px;
+      border-radius: 8px;
       font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
     }
 
     .btn-gold {
@@ -64,12 +93,69 @@
       color: black;
     }
 
+    .btn-outline {
+      background: transparent;
+      color: gold;
+      border: 1px solid gold;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .box {
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 22px;
+      border-radius: 14px;
+      background: rgba(15, 11, 20, 0.9);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    .box h2, .box h3 {
+      color: gold;
+      margin-top: 0;
+    }
+
+    .wide {
+      grid-column: span 3;
+    }
+
+    .ufo-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    input {
+      padding: 12px;
+      width: 280px;
+      max-width: 100%;
+      border-radius: 8px;
+      border: none;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 12px 22px;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
     .btn-green {
       background: green;
       color: white;
     }
 
-    .btn-outline {
+    .btn-outline-small {
       background: transparent;
       color: gold;
       border: 1px solid gold;
@@ -80,95 +166,166 @@
     }
 
     #error {
-      color: red;
+      color: #ff6b6b;
       margin-top: 10px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px 0 40px;
+      color: #bbb;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .wide {
+        grid-column: span 1;
+      }
+
+      .topbar {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
 
 <body>
+  <div class="overlay">
+    <div class="container">
 
-<div class="container">
+      <div class="topbar">
+        <div class="logo">EL UMBRAL</div>
+        <div class="menu">
+          <a href="#inicio">Inicio</a>
+          <a href="#expediente">Expediente</a>
+          <a href="#premium-zone">Premium</a>
+          <a href="#suscripcion">Suscripción</a>
+        </div>
+      </div>
 
-  <h1>EL UMBRAL</h1>
-  <p>Misterio, OVNI y conocimiento oculto</p>
+      <section class="hero" id="inicio">
+        <h1>EL UMBRAL</h1>
+        <p>
+          Misterio, OVNI y conocimiento oculto. Un espacio para expedientes inquietantes,
+          fenómenos sin explicación y contenido reservado para quienes quieren mirar más allá.
+        </p>
+        <div class="hero-buttons">
+          <a href="#expediente" class="btn btn-gold">Ver expediente</a>
+          <a href="#premium-zone" class="btn btn-outline">Zona premium</a>
+        </div>
+      </section>
 
-  <!-- ANUNCIO -->
-  <div class="box">
-    ESPACIO PARA ADSENSE
-  </div>
+      <div class="grid">
 
-  <!-- CONTENIDO -->
-  <div class="box">
-    <h2>Expediente OVNI</h2>
-<img 
-  src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" 
-  alt="OVNI"
-  style="width:100%; height:300px; object-fit:cover; filter:brightness(0.7); border-radius:10px; margin-bottom:15px;"
->
-    
+        <div class="box">
+          <h3>Fenómenos OVNI</h3>
+          <p>Luces en el cielo, objetos imposibles y avistamientos que siguen abiertos a interpretación.</p>
+        </div>
 
-    <p>
-      Un objeto luminoso fue visto sobre un monasterio antiguo durante varios minutos sin emitir sonido alguno.
-      Los testigos describieron una sensación de silencio absoluto antes de desaparecer.
-    </p>
-  </div>
+        <div class="box">
+          <h3>Expedientes</h3>
+          <p>Casos narrados con tono serio, visual potente y estructura pensada para enganchar al lector.</p>
+        </div>
 
-  <!-- SUSCRIPCIÓN -->
-  <div class="box">
-    <h3>Suscríbete</h3>
-    <input type="email" placeholder="Tu email">
-    <br>
-    <button class="btn-gold">Suscribirme</button>
-  </div>
+        <div class="box">
+          <h3>Contenido Premium</h3>
+          <p>Archivos ampliados, material reservado, hipótesis extra y futuros documentos exclusivos.</p>
+        </div>
 
-  <!-- PREMIUM -->
-  <div class="box">
+        <div class="box wide" id="expediente">
+          <h2>Expediente OVNI</h2>
 
-    <div id="bloque-pago">
-      <h2>Zona Premium</h2>
-      <p>Accede a contenido exclusivo</p>
+          <img
+            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
+            alt="OVNI"
+            class="ufo-img"
+          >
 
-      <button class="btn-green" onclick="irPago()">
-        Acceso VIP - 5€
-      </button>
+          <p>
+            Un objeto luminoso fue visto sobre un monasterio antiguo durante varios minutos sin emitir sonido alguno.
+            Los testigos describieron una sensación de silencio absoluto antes de desaparecer.
+          </p>
+        </div>
 
-      <br><br>
+        <div class="box" id="suscripcion">
+          <h3>Suscríbete</h3>
+          <p>Recibe nuevos casos, relatos y futuros expedientes en cuanto se publiquen.</p>
+          <input type="email" placeholder="Tu email">
+          <br>
+          <button class="btn-gold">Suscribirme</button>
+        </div>
 
-      <input id="codigo" placeholder="Código premium">
-      <br>
-      <button class="btn-outline" onclick="desbloquear()">
-        Desbloquear
-      </button>
+        <div class="box" id="premium-zone">
+          <div id="bloque-pago">
+            <h2>Zona Premium</h2>
+            <p>Accede a contenido exclusivo</p>
 
-      <p id="error"></p>
+            <button class="btn-green" onclick="irPago()">
+              Acceso VIP - 5€
+            </button>
+
+            <br><br>
+
+            <input id="codigo" placeholder="Código premium">
+            <br>
+            <button class="btn-outline-small" onclick="desbloquear()">
+              Desbloquear
+            </button>
+
+            <p id="error"></p>
+          </div>
+
+          <div id="premium">
+            <h3>Contenido desbloqueado</h3>
+            <p>
+              Archivo secreto OVNI completo con información ampliada, cronología del caso
+              y líneas de investigación reservadas.
+            </p>
+          </div>
+        </div>
+
+        <div class="box">
+          <h3>Espacio para AdSense</h3>
+          <p>Aquí podrás colocar tu anuncio cuando tengas el ID real de AdSense.</p>
+        </div>
+
+      </div>
+
+      <div class="footer">
+        © 2026 EL UMBRAL · Misterio, OVNI y conocimiento oculto
+      </div>
+
     </div>
-
-    <div id="premium">
-      <h3>Contenido desbloqueado</h3>
-      <p>Archivo secreto OVNI completo con información ampliada...</p>
-    </div>
-
   </div>
 
-</div>
+  <script>
+    function irPago() {
+      window.location.href = "https://buy.stripe.com/test_xxx";
+    }
 
-<script>
-function irPago() {
-  window.location.href = "https://buy.stripe.com/test_xxx";
-}
+    function desbloquear() {
+      let codigo = document.getElementById("codigo").value;
 
-function desbloquear() {
-  let codigo = document.getElementById("codigo").value;
-
-  if (codigo === "VIP-UMBRAL-2026") {
-    document.getElementById("premium").style.display = "block";
-    document.getElementById("bloque-pago").style.display = "none";
-  } else {
-    document.getElementById("error").innerText = "Código incorrecto";
-  }
-}
-</script>
-
+      if (codigo === "VIP-UMBRAL-2026") {
+        document.getElementById("premium").style.display = "block";
+        document.getElementById("bloque-pago").style.display = "none";
+      } else {
+        document.getElementById("error").innerText = "Código incorrecto";
+      }
+    }
+  </script>
 </body>
 </html>
