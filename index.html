@@ -6,9 +6,7 @@
   <title>EL UMBRAL</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -51,19 +49,14 @@
       font-size: 14px;
     }
 
-    .menu a:hover {
-      color: gold;
-    }
+    .menu a:hover { color: gold; }
 
     .hero {
       text-align: center;
       padding: 70px 20px 40px;
     }
 
-    .hero h1 {
-      font-size: 56px;
-      margin-bottom: 10px;
-    }
+    .hero h1 { font-size: 56px; }
 
     .hero p {
       font-size: 20px;
@@ -73,9 +66,7 @@
       line-height: 1.7;
     }
 
-    .hero-buttons {
-      margin-top: 25px;
-    }
+    .hero-buttons { margin-top: 25px; }
 
     .btn {
       display: inline-block;
@@ -88,16 +79,8 @@
       border: none;
     }
 
-    .btn-gold {
-      background: gold;
-      color: black;
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: gold;
-      border: 1px solid gold;
-    }
+    .btn-gold { background: gold; color: black; }
+    .btn-outline { background: transparent; color: gold; border: 1px solid gold; }
 
     .grid {
       display: grid;
@@ -114,28 +97,21 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.35);
     }
 
-    .box h2, .box h3 {
-      color: gold;
-      margin-top: 0;
-    }
+    .box h2, .box h3 { color: gold; }
 
-    .wide {
-      grid-column: span 3;
-    }
+    .wide { grid-column: span 3; }
 
     .ufo-img {
       width: 100%;
-      height: 320px;
+      height: 300px;
       object-fit: cover;
       border-radius: 10px;
       margin-bottom: 15px;
-      display: block;
     }
 
     input {
       padding: 12px;
-      width: 280px;
-      max-width: 100%;
+      width: 100%;
       border-radius: 8px;
       border: none;
       margin-top: 10px;
@@ -144,227 +120,123 @@
     button {
       margin-top: 10px;
       padding: 12px 22px;
-      border: none;
-      cursor: pointer;
       border-radius: 8px;
       font-weight: bold;
+      cursor: pointer;
     }
 
-    .btn-green {
-      background: green;
-      color: white;
-    }
+    .btn-green { background: green; color: white; }
+    .btn-outline-small { background: transparent; color: gold; border: 1px solid gold; }
 
-    .btn-outline-small {
-      background: transparent;
-      color: gold;
-      border: 1px solid gold;
-    }
-
-    #premium {
-      display: none;
-    }
-
-    #error {
-      color: #ff6b6b;
-      margin-top: 10px;
-    }
+    #premium { display: none; }
+    #error { color: #ff6b6b; }
 
     .footer {
       text-align: center;
-      padding: 30px 0 40px;
+      padding: 30px;
       color: #bbb;
-      font-size: 14px;
     }
 
     @media (max-width: 900px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .wide {
-        grid-column: span 1;
-      }
-
-      .topbar {
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .hero h1 {
-        font-size: 40px;
-      }
-
-      .hero p {
-        font-size: 18px;
-      }
+      .grid { grid-template-columns: 1fr; }
+      .wide { grid-column: span 1; }
+      .hero h1 { font-size: 40px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="overlay">
-    <div class="container">
-<div class="box">
-  <h2>El objeto que descendió sin hacer ruido</h2>
+<div class="overlay">
+<div class="container">
 
-  <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1200&q=80" class="ufo-img">
-
-  <p>
-    Un objeto descendió lentamente del cielo sin emitir ningún sonido...
-  </p>
-  </div>
-  <div class="box">
-  <h2>La figura detrás del cristal</h2>
-
-  <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80" class="ufo-img">
-
-  <p>
-    Una silueta apareció reflejada en el cristal… pero no existía detrás.
-  </p>
-</div>
-      <div class="box">
-  <h2>El sueño compartido</h2>
-
-  <img src="https://images.unsplash.com/photo-1473649085228-583485e6e4d7?auto=format&fit=crop&w=1200&q=80" class="ufo-img">
-
-  <p>
-    Tres personas, sin relación entre ellas, describieron exactamente el mismo sueño:
-    una habitación blanca, una mesa metálica y figuras sin rostro.
-  </p>
-
-  <p>
-    Ninguno se conocía previamente. Ninguno tenía contacto entre sí.
-  </p>
-
-  <p>
-    Al comparar sus relatos, coincidían en detalles imposibles de inventar de forma independiente.
-  </p>
-
-  <p>
-    ¿Coincidencia… o algo más?
-  </p>
-</div>
-      <div class="topbar">
-        <div class="logo">EL UMBRAL</div>
-        <div class="menu">
-          <a href="#inicio">Inicio</a>
-          <a href="#expediente">Expediente</a>
-          <a href="#premium-zone">Premium</a>
-          <a href="#suscripcion">Suscripción</a>
-        </div>
-      </div>
-
-      <section class="hero" id="inicio">
-        <h1>EL UMBRAL</h1>
-        <p>
-          Misterio, OVNI y conocimiento oculto. Un espacio para expedientes inquietantes,
-          fenómenos sin explicación y contenido reservado para quienes quieren mirar más allá.
-        </p>
-        <div class="hero-buttons">
-          <a href="#expediente" class="btn btn-gold">Ver expediente</a>
-          <a href="#premium-zone" class="btn btn-outline">Zona premium</a>
-        </div>
-      </section>
-
-      <div class="grid">
-
-        <div class="box">
-          <h3>Fenómenos OVNI</h3>
-          <p>Luces en el cielo, objetos imposibles y avistamientos que siguen abiertos a interpretación.</p>
-        </div>
-
-        <div class="box">
-          <h3>Expedientes</h3>
-          <p>Casos narrados con tono serio, visual potente y estructura pensada para enganchar al lector.</p>
-        </div>
-
-        <div class="box">
-          <h3>Contenido Premium</h3>
-          <p>Archivos ampliados, material reservado, hipótesis extra y futuros documentos exclusivos.</p>
-        </div>
-
-        <div class="box wide" id="expediente">
-          <h2>Expediente OVNI</h2>
-
-          <img
-            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
-            alt="OVNI"
-            class="ufo-img"
-          >
-
-          <p>
-            Un objeto luminoso fue visto sobre un monasterio antiguo durante varios minutos sin emitir sonido alguno.
-            Los testigos describieron una sensación de silencio absoluto antes de desaparecer.
-          </p>
-        </div>
-
-        <div class="box" id="suscripcion">
-          <h3>Suscríbete</h3>
-          <p>Recibe nuevos casos, relatos y futuros expedientes en cuanto se publiquen.</p>
-          <input type="email" placeholder="Tu email">
-          <br>
-          <button class="btn-gold">Suscribirme</button>
-        </div>
-
-        <div class="box" id="premium-zone">
-          <div id="bloque-pago">
-            <h2>Zona Premium</h2>
-            <p>Accede a contenido exclusivo</p>
-
-            <button class="btn-green" onclick="irPago()">
-              Acceso VIP - 5€
-            </button>
-
-            <br><br>
-
-            <input id="codigo" placeholder="Código premium">
-            <br>
-            <button class="btn-outline-small" onclick="desbloquear()">
-              Desbloquear
-            </button>
-
-            <p id="error"></p>
-          </div>
-
-          <div id="premium">
-            <h3>Contenido desbloqueado</h3>
-            <p>
-              Archivo secreto OVNI completo con información ampliada, cronología del caso
-              y líneas de investigación reservadas.
-            </p>
-          </div>
-        </div>
-
-        <div class="box">
-          <h3>Espacio para AdSense</h3>
-          <p>Aquí podrás colocar tu anuncio cuando tengas el ID real de AdSense.</p>
-        </div>
-
-      </div>
-
-      <div class="footer">
-        © 2026 EL UMBRAL · Misterio, OVNI y conocimiento oculto
-      </div>
-
+  <!-- MENU -->
+  <div class="topbar">
+    <div class="logo">EL UMBRAL</div>
+    <div class="menu">
+      <a href="#inicio">Inicio</a>
+      <a href="#expediente">Expediente</a>
+      <a href="#premium">Premium</a>
     </div>
   </div>
 
-  <script>
-    function irPago() {
-      window.location.href = "https://buy.stripe.com/test_xxx";
-    }
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <h1>EL UMBRAL</h1>
+    <p>Misterio, OVNI y conocimiento oculto</p>
+  </section>
 
-    function desbloquear() {
-      let codigo = document.getElementById("codigo").value;
+  <!-- GRID -->
+  <div class="grid">
 
-      if (codigo === "VIP-UMBRAL-2026") {
-        document.getElementById("premium").style.display = "block";
-        document.getElementById("bloque-pago").style.display = "none";
-      } else {
-        document.getElementById("error").innerText = "Código incorrecto";
-      }
-    }
-  </script>
+    <!-- EXPEDIENTE PRINCIPAL -->
+    <div class="box wide" id="expediente">
+      <h2>Expediente OVNI</h2>
+
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" class="ufo-img">
+
+      <p>
+        Un objeto luminoso fue visto sobre un monasterio antiguo durante varios minutos sin emitir sonido alguno.
+      </p>
+    </div>
+
+    <!-- ARTÍCULO 1 -->
+    <div class="box">
+      <h2>El objeto que descendió sin hacer ruido</h2>
+      <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1200&q=80" class="ufo-img">
+      <p>Un objeto descendió lentamente del cielo sin emitir ningún sonido...</p>
+    </div>
+
+    <!-- ARTÍCULO 2 -->
+    <div class="box">
+      <h2>La figura detrás del cristal</h2>
+      <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80" class="ufo-img">
+      <p>Una silueta apareció reflejada en el cristal… pero no existía detrás.</p>
+    </div>
+
+    <!-- ARTÍCULO 3 -->
+    <div class="box">
+      <h2>El sueño compartido</h2>
+      <img src="https://images.unsplash.com/photo-1473649085228-583485e6e4d7?auto=format&fit=crop&w=1200&q=80" class="ufo-img">
+      <p>Tres personas soñaron exactamente lo mismo… ¿casualidad o algo más?</p>
+    </div>
+
+    <!-- PREMIUM -->
+    <div class="box">
+      <h2>Zona Premium</h2>
+      <button class="btn-green" onclick="irPago()">Acceso VIP - 5€</button>
+      <input id="codigo" placeholder="Código premium">
+      <button class="btn-outline-small" onclick="desbloquear()">Desbloquear</button>
+      <p id="error"></p>
+
+      <div id="premium">
+        <p>Contenido desbloqueado</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    © 2026 EL UMBRAL
+  </div>
+
+</div>
+</div>
+
+<script>
+function irPago() {
+  window.location.href = "https://buy.stripe.com/test_xxx";
+}
+
+function desbloquear() {
+  let codigo = document.getElementById("codigo").value;
+
+  if (codigo === "VIP-UMBRAL-2026") {
+    document.getElementById("premium").style.display = "block";
+  } else {
+    document.getElementById("error").innerText = "Código incorrecto";
+  }
+}
+</script>
+
 </body>
 </html>
