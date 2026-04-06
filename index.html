@@ -1,603 +1,342 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EL UMBRAL</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EL UMBRAL</title>
 
-    body {
-      font-family: Georgia, serif;
-      background: url('https://images.unsplash.com/photo-1502134249126-9f3755a50d78?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
 
-    .overlay {
-      min-height: 100vh;
-      background: rgba(0, 0, 0, 0.74);
-    }
+body{
+font-family:Georgia,serif;
+background:url('https://images.unsplash.com/photo-1502134249126-9f3755a50d78?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
+background-size:cover;
+color:white;
+}
 
-    .container {
-      max-width: 1250px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+.overlay{
+background:rgba(0,0,0,0.75);
+min-height:100vh;
+}
 
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.18);
-      flex-wrap: wrap;
-    }
+.container{
+max-width:1200px;
+margin:auto;
+padding:20px;
+}
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+/* HEADER */
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:20px;
+border-bottom:1px solid rgba(255,255,255,0.2);
+padding-bottom:15px;
+}
 
-    .logo-svg {
-      width: 72px;
-      height: 72px;
-      flex-shrink: 0;
-      filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.35));
-    }
+.brand{
+display:flex;
+align-items:center;
+gap:15px;
+}
 
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-    }
+/* LOGO */
+.logo svg{
+filter:drop-shadow(0 0 10px rgba(212,175,55,0.5));
+}
 
-    .logo-title {
-      font-size: 2rem;
-      font-weight: bold;
-      letter-spacing: 3px;
-      color: #f5d77a;
-    }
+/* animación */
+@keyframes spin{
+from{transform:rotate(0deg)}
+to{transform:rotate(360deg)}
+}
 
-    .logo-subtitle {
-      font-size: 0.9rem;
-      color: #ddd;
-      letter-spacing: 1px;
-    }
+.star{
+transform-origin:150px 150px;
+animation:spin 18s linear infinite;
+}
 
-    .menu {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: flex-end;
-    }
+/* TEXTO LOGO */
+.logo-text{
+display:flex;
+flex-direction:column;
+}
 
-    .menu a,
-    .menu button {
-      color: white;
-      text-decoration: none;
-      font-size: 0.95rem;
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.22);
-      padding: 10px 14px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-      font-family: inherit;
-    }
+.logo-title{
+font-size:2rem;
+color:#f5d77a;
+letter-spacing:3px;
+font-weight:bold;
+}
 
-    .menu a:hover,
-    .menu button:hover {
-      background: rgba(255,255,255,0.12);
-      color: #f0c96a;
-      border-color: rgba(240, 201, 106, 0.55);
-    }
+.logo-sub{
+font-size:0.9rem;
+color:#ccc;
+}
 
-    .hero {
-      text-align: center;
-      padding: 80px 20px 55px;
-    }
+/* MENU */
+.menu{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
 
-    .hero h1 {
-      font-size: 3.2rem;
-      margin-bottom: 18px;
-      text-shadow: 2px 2px 12px rgba(0,0,0,0.85);
-      color: #fff;
-    }
+.menu a, .menu button{
+background:none;
+border:1px solid rgba(255,255,255,0.3);
+color:white;
+padding:8px 12px;
+border-radius:8px;
+cursor:pointer;
+text-decoration:none;
+}
 
-    .hero p {
-      font-size: 1.15rem;
-      max-width: 900px;
-      margin: 0 auto 28px;
-      line-height: 1.7;
-      color: #f1f1f1;
-    }
+.menu a:hover,.menu button:hover{
+background:rgba(255,255,255,0.1);
+color:#f5d77a;
+}
 
-    .hero-badge {
-      display: inline-block;
-      padding: 10px 18px;
-      border: 1px solid rgba(245, 215, 122, 0.4);
-      border-radius: 999px;
-      color: #f5d77a;
-      background: rgba(255,255,255,0.05);
-      margin-bottom: 25px;
-      font-size: 0.95rem;
-    }
+/* HERO */
+.hero{
+text-align:center;
+padding:60px 20px;
+}
 
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      margin: 25px 0 28px;
-      color: #f5d77a;
-    }
+.hero h1{
+font-size:3rem;
+margin-bottom:15px;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-bottom: 55px;
-    }
+.hero p{
+max-width:800px;
+margin:auto;
+line-height:1.6;
+}
 
-    .card {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.34);
-      backdrop-filter: blur(4px);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
+/* CARDS */
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:30px;
+}
 
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.42);
-    }
+.card{
+background:rgba(255,255,255,0.08);
+border-radius:12px;
+overflow:hidden;
+cursor:pointer;
+transition:0.3s;
+}
 
-    .card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-    }
+.card:hover{
+transform:translateY(-5px);
+}
 
-    .card-content {
-      padding: 18px;
-    }
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
 
-    .card-content h3 {
-      font-size: 1.25rem;
-      margin-bottom: 10px;
-      color: #f5d77a;
-      line-height: 1.3;
-    }
+.card-content{
+padding:15px;
+}
 
-    .card-content p {
-      font-size: 1rem;
-      line-height: 1.55;
-      color: #f2f2f2;
-    }
+.card-content h3{
+color:#f5d77a;
+margin-bottom:10px;
+}
 
-    .panel-box {
-      display: none;
-      margin: 30px auto;
-      background: rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 25px;
-      max-width: 950px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.35);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
+/* PANEL */
+.panel-box{
+display:none;
+margin-top:30px;
+background:rgba(255,255,255,0.08);
+padding:20px;
+border-radius:12px;
+}
 
-    .panel-box.active {
-      display: block;
-    }
+.panel-box.active{
+display:block;
+}
 
-    .panel-box h2 {
-      margin-bottom: 18px;
-      color: #f5d77a;
-      line-height: 1.3;
-      font-size: 2rem;
-    }
+.panel-box img{
+width:100%;
+max-height:400px;
+object-fit:cover;
+margin-bottom:15px;
+}
 
-    .panel-box p {
-      line-height: 1.8;
-      color: #f4f4f4;
-      margin-bottom: 14px;
-      white-space: pre-line;
-      font-size: 1.05rem;
-    }
+/* ADMIN */
+.admin-form input,
+.admin-form textarea,
+.admin-form select{
+width:100%;
+padding:10px;
+margin-top:8px;
+border:none;
+border-radius:8px;
+}
 
-    .panel-box img {
-      width: 100%;
-      max-height: 420px;
-      object-fit: cover;
-      border-radius: 12px;
-      margin-bottom: 22px;
-      display: block;
-    }
+.save-btn,.back-btn{
+margin-top:15px;
+background:#d4af37;
+border:none;
+padding:10px;
+border-radius:8px;
+cursor:pointer;
+}
 
-    .back-btn,
-    .save-btn {
-      margin-top: 16px;
-      background: #d4af37;
-      color: black;
-      border: none;
-      padding: 12px 18px;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-      font-family: inherit;
-    }
-
-    .back-btn:hover,
-    .save-btn:hover {
-      background: #f0c94d;
-    }
-
-    .admin-form label {
-      display: block;
-      margin: 16px 0 8px;
-      font-weight: bold;
-      color: #f5d77a;
-    }
-
-    .admin-form select,
-    .admin-form input,
-    .admin-form textarea {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-      font-size: 1rem;
-      font-family: inherit;
-    }
-
-    .admin-form textarea {
-      min-height: 180px;
-      resize: vertical;
-    }
-
-    .footer {
-      text-align: center;
-      padding: 30px 20px;
-      border-top: 1px solid rgba(255,255,255,0.18);
-      color: #ddd;
-      font-size: 0.95rem;
-      margin-top: 40px;
-    }
-
-    @media (max-width: 900px) {
-      .topbar {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .brand {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .menu {
-        justify-content: center;
-      }
-
-      .logo-title {
-        font-size: 1.7rem;
-      }
-
-      .hero h1 {
-        font-size: 2.4rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        padding-top: 55px;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .logo-svg {
-        width: 60px;
-        height: 60px;
-      }
-    }
-  </style>
+/* FOOTER */
+.footer{
+text-align:center;
+margin-top:40px;
+padding:20px;
+border-top:1px solid rgba(255,255,255,0.2);
+}
+</style>
 </head>
+
 <body>
-  <div class="overlay">
-    <div class="container">
+<div class="overlay">
+<div class="container">
 
-      <header class="topbar">
-        <div class="brand">
-          <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Logo EL UMBRAL">
-            <polygon
-              points="100,10 120,75 190,75 135,115 155,180 100,140 45,180 65,115 10,75 80,75"
-              fill="none"
-              stroke="#d4af37"
-              stroke-width="5"
-              stroke-linejoin="round"
-            />
-            <circle cx="100" cy="100" r="34" fill="black" stroke="#d4af37" stroke-width="2"/>
-            <path
-              d="M100 66
-                 A34 34 0 1 1 100 134
-                 A17 17 0 1 0 100 66"
-              fill="white"
-            />
-            <circle cx="100" cy="83" r="5" fill="white"/>
-            <circle cx="100" cy="117" r="5" fill="black"/>
-          </svg>
+<header class="topbar">
+<div class="brand">
 
-          <div class="logo-text">
-            <div class="logo-title">EL UMBRAL</div>
-            <div class="logo-subtitle">Misterio, enigmas y realidades ocultas</div>
-          </div>
-        </div>
+<div class="logo">
+<svg viewBox="0 0 300 300" width="80">
 
-        <nav class="menu">
-          <a href="#" onclick="showHome(); return false;">Inicio</a>
-          <a href="#" onclick="openExpediente('ovni'); return false;">OVNI</a>
-          <a href="#" onclick="openExpediente('civilizaciones'); return false;">Civilizaciones</a>
-          <a href="#" onclick="openExpediente('muerte'); return false;">Más allá</a>
-          <a href="#" onclick="openExpediente('paranormal'); return false;">Paranormal</a>
-          <a href="#" onclick="openExpediente('tierra'); return false;">Tierra plana</a>
-          <a href="#" onclick="openExpediente('matrix'); return false;">Matrix</a>
-          <a href="#" onclick="openExpediente('lectores'); return false;">Lectores</a>
-          <button onclick="toggleAdmin()">Administrador</button>
-        </nav>
-      </header>
+<g class="star">
+<polygon points="150,20 179,111 275,111 197,167 226,258 150,202 74,258 103,167 25,111 121,111"
+fill="none" stroke="#d4af37" stroke-width="5"/>
+</g>
 
-      <section class="hero" id="homeSection">
-        <div class="hero-badge">Portal temático de investigación y testimonios</div>
-        <h1>Bienvenido a EL UMBRAL</h1>
-        <p>
-          Un espacio dedicado a los grandes enigmas, fenómenos inexplicables,
-          civilizaciones perdidas, vida después de la muerte, ovnis, razas alienígenas,
-          teorías alternativas, simulación de la realidad y relatos enviados por nuestros lectores.
-        </p>
-      </section>
+<circle cx="150" cy="150" r="45" fill="black" stroke="#d4af37" stroke-width="2"/>
+<path d="M150 105 A45 45 0 1 1 150 195 A22.5 22.5 0 1 0 150 105" fill="white"/>
+<circle cx="150" cy="127" r="6" fill="white"/>
+<circle cx="150" cy="173" r="6" fill="black"/>
 
-      <section id="cardsSection">
-        <h2 class="section-title">Expedientes destacados</h2>
+</svg>
+</div>
 
-        <div class="cards">
-          <article class="card" onclick="openExpediente('ovni')">
-            <img id="img-ovni" src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200&auto=format&fit=crop" alt="Fenómeno OVNI / Razas alienígenas">
-            <div class="card-content">
-              <h3 id="titulo-ovni">Fenómeno OVNI / Razas alienígenas</h3>
-              <p id="resumen-ovni">Avistamientos, contactos y teorías sobre civilizaciones extraterrestres.</p>
-            </div>
-          </article>
+<div class="logo-text">
+<div class="logo-title">EL UMBRAL</div>
+<div class="logo-sub">Misterio y realidad oculta</div>
+</div>
 
-          <article class="card" onclick="openExpediente('civilizaciones')">
-            <img id="img-civilizaciones" src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=1200&auto=format&fit=crop" alt="Civilizaciones perdidas">
-            <div class="card-content">
-              <h3 id="titulo-civilizaciones">Civilizaciones perdidas</h3>
-              <p id="resumen-civilizaciones">Enigmas arqueológicos, construcciones imposibles y secretos de la antigüedad.</p>
-            </div>
-          </article>
+</div>
 
-          <article class="card" onclick="openExpediente('muerte')">
-            <img id="img-muerte" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Más allá de la muerte">
-            <div class="card-content">
-              <h3 id="titulo-muerte">Más allá de la muerte</h3>
-              <p id="resumen-muerte">Experiencias cercanas a la muerte, apariciones y casos inexplicables.</p>
-            </div>
-          </article>
+<nav class="menu">
+<a href="#" onclick="showHome()">Inicio</a>
+<button onclick="toggleAdmin()">Administrador</button>
+</nav>
+</header>
 
-          <article class="card" onclick="openExpediente('paranormal')">
-            <img id="img-paranormal" src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1200&auto=format&fit=crop" alt="Fenómenos paranormales">
-            <div class="card-content">
-              <h3 id="titulo-paranormal">Fenómenos paranormales</h3>
-              <p id="resumen-paranormal">Casas encantadas, presencias y sucesos inexplicables.</p>
-            </div>
-          </article>
+<section class="hero" id="homeSection">
+<h1>Bienvenido a EL UMBRAL</h1>
+<p>Explora los grandes misterios del mundo: ovnis, civilizaciones perdidas, fenómenos paranormales y teorías que desafían la realidad.</p>
+</section>
 
-          <article class="card" onclick="openExpediente('tierra')">
-            <img id="img-tierra" src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1200&auto=format&fit=crop" alt="Tierra plana">
-            <div class="card-content">
-              <h3 id="titulo-tierra">Tierra plana</h3>
-              <p id="resumen-tierra">Teorías alternativas sobre la forma de nuestro mundo.</p>
-            </div>
-          </article>
+<section id="cardsSection">
+<div class="cards">
 
-          <article class="card" onclick="openExpediente('matrix')">
-            <img id="img-matrix" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop" alt="La Matrix o el juego de la vida">
-            <div class="card-content">
-              <h3 id="titulo-matrix">La Matrix o el juego de la vida</h3>
-              <p id="resumen-matrix">¿Vivimos en una simulación? ¿Es la vida un juego?</p>
-            </div>
-          </article>
+<div class="card" onclick="openExpediente('ovni')">
+<img src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200">
+<div class="card-content">
+<h3 id="titulo-ovni">Fenómeno OVNI / Razas alienígenas</h3>
+<p id="resumen-ovni">Avistamientos y teorías extraterrestres</p>
+</div>
+</div>
 
-          <article class="card" onclick="openExpediente('lectores')">
-            <img id="img-lectores" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop" alt="Historias de nuestros lectores">
-            <div class="card-content">
-              <h3 id="titulo-lectores">Historias de nuestros lectores</h3>
-              <p id="resumen-lectores">Relatos reales enviados por nuestra comunidad.</p>
-            </div>
-          </article>
-        </div>
-      </section>
+<div class="card" onclick="openExpediente('civilizaciones')">
+<img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=1200">
+<div class="card-content">
+<h3 id="titulo-civilizaciones">Civilizaciones perdidas</h3>
+<p id="resumen-civilizaciones">Secretos antiguos</p>
+</div>
+</div>
 
-      <section class="panel-box" id="expedienteBox">
-        <img id="expedienteImagen" src="" alt="">
-        <h2 id="expedienteTitulo"></h2>
-        <p id="expedienteTexto"></p>
-        <button class="back-btn" onclick="showHome()">Volver al inicio</button>
-      </section>
+<div class="card" onclick="openExpediente('muerte')">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200">
+<div class="card-content">
+<h3 id="titulo-muerte">Más allá de la muerte</h3>
+<p id="resumen-muerte">Experiencias inexplicables</p>
+</div>
+</div>
 
-      <section class="panel-box" id="adminPanel">
-        <h2>Panel de Administrador</h2>
-        <p>
-          Aquí puedes cambiar el contenido visible de cada expediente sin tocar el diseño de la web.
-        </p>
+</div>
+</section>
 
-        <div class="admin-form">
-          <label for="expedienteSelect">Selecciona expediente</label>
-          <select id="expedienteSelect" onchange="loadAdminData()">
-            <option value="ovni">Fenómeno OVNI / Razas alienígenas</option>
-            <option value="civilizaciones">Civilizaciones perdidas</option>
-            <option value="muerte">Más allá de la muerte</option>
-            <option value="paranormal">Fenómenos paranormales</option>
-            <option value="tierra">Tierra plana</option>
-            <option value="matrix">La Matrix o el juego de la vida</option>
-            <option value="lectores">Historias de nuestros lectores</option>
-          </select>
+<section class="panel-box" id="expedienteBox">
+<img id="expedienteImagen">
+<h2 id="expedienteTitulo"></h2>
+<p id="expedienteTexto"></p>
+<button class="back-btn" onclick="showHome()">Volver</button>
+</section>
 
-          <label for="adminTitulo">Título</label>
-          <input type="text" id="adminTitulo">
+<section class="panel-box" id="adminPanel">
+<h2>Administrador</h2>
 
-          <label for="adminResumen">Resumen corto</label>
-          <input type="text" id="adminResumen">
+<select id="expedienteSelect">
+<option value="ovni">OVNI</option>
+<option value="civilizaciones">Civilizaciones</option>
+<option value="muerte">Muerte</option>
+</select>
 
-          <label for="adminImagen">URL de la imagen</label>
-          <input type="text" id="adminImagen">
+<input id="adminTitulo" placeholder="Título">
+<input id="adminResumen" placeholder="Resumen">
+<input id="adminImagen" placeholder="URL imagen">
+<textarea id="adminTexto" placeholder="Texto"></textarea>
 
-          <label for="adminTexto">Texto completo del expediente</label>
-          <textarea id="adminTexto"></textarea>
+<button class="save-btn" onclick="saveExpediente()">Guardar</button>
+</section>
 
-          <button class="save-btn" onclick="saveExpediente()">Guardar cambios</button>
-        </div>
-      </section>
+<footer class="footer">
+© 2026 EL UMBRAL
+</footer>
 
-      <footer class="footer">
-        © 2026 EL UMBRAL - Todos los derechos reservados
-      </footer>
+</div>
+</div>
 
-    </div>
-  </div>
+<script>
+const expedientes={
+ovni:{titulo:"Fenómeno OVNI / Razas alienígenas",resumen:"Avistamientos extraterrestres",imagen:"https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200",texto:"Contenido OVNI"},
+civilizaciones:{titulo:"Civilizaciones perdidas",resumen:"Misterios antiguos",imagen:"https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=1200",texto:"Contenido civilizaciones"},
+muerte:{titulo:"Más allá de la muerte",resumen:"Experiencias cercanas",imagen:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200",texto:"Contenido muerte"}
+};
 
-  <script>
-    const expedientes = {
-      ovni: {
-        titulo: "Fenómeno OVNI / Razas alienígenas",
-        resumen: "Avistamientos, contactos y teorías sobre civilizaciones extraterrestres.",
-        imagen: "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200&auto=format&fit=crop",
-        texto: "El fenómeno OVNI incluye avistamientos, contactos y teorías sobre civilizaciones extraterrestres. En este apartado puedes documentar razas alienígenas, casos reales, informes desclasificados y encuentros cercanos registrados en todo el mundo."
-      },
-      civilizaciones: {
-        titulo: "Civilizaciones perdidas",
-        resumen: "Enigmas arqueológicos, construcciones imposibles y secretos de la antigüedad.",
-        imagen: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=1200&auto=format&fit=crop",
-        texto: "Las civilizaciones perdidas despiertan preguntas sobre conocimientos antiguos, ciudades desaparecidas y tecnologías adelantadas a su tiempo. Aquí puedes incorporar información sobre la Atlántida, Lemuria, Egipto, Göbekli Tepe o cualquier otro misterio histórico."
-      },
-      muerte: {
-        titulo: "Más allá de la muerte",
-        resumen: "Experiencias cercanas a la muerte, apariciones y casos inexplicables.",
-        imagen: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop",
-        texto: "Este expediente está dedicado a testimonios sobre experiencias cercanas a la muerte, visiones, apariciones y posibles señales del más allá. Puedes incluir relatos, investigaciones, opiniones de expertos y casos famosos."
-      },
-      paranormal: {
-        titulo: "Fenómenos paranormales",
-        resumen: "Casas encantadas, presencias y sucesos inexplicables.",
-        imagen: "https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1200&auto=format&fit=crop",
-        texto: "Aquí puedes incluir historias de casas encantadas, apariciones, objetos que se mueven solos, psicofonías, grabaciones extrañas y experiencias personales relacionadas con fenómenos paranormales."
-      },
-      tierra: {
-        titulo: "Tierra plana",
-        resumen: "Teorías alternativas sobre la forma de nuestro mundo.",
-        imagen: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1200&auto=format&fit=crop",
-        texto: "Este apartado recoge teorías, argumentos y debates sobre la posibilidad de que la Tierra tenga una forma diferente a la aceptada oficialmente. Aquí puedes añadir comparativas, vídeos, hipótesis y análisis."
-      },
-      matrix: {
-        titulo: "La Matrix o el juego de la vida",
-        resumen: "¿Vivimos en una simulación? ¿Es la vida un juego?",
-        imagen: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop",
-        texto: "Teorías filosóficas y tecnológicas sobre la realidad, la simulación, la inteligencia artificial y el sentido de la existencia. Este espacio puede servir para reunir ideas sobre si vivimos dentro de una especie de Matrix."
-      },
-      lectores: {
-        titulo: "Historias de nuestros lectores",
-        resumen: "Relatos reales enviados por nuestra comunidad.",
-        imagen: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop",
-        texto: "Espacio para que los visitantes compartan sus propias experiencias paranormales, avistamientos o sucesos inexplicables. Aquí puedes reunir testimonios reales enviados por la comunidad de EL UMBRAL."
-      }
-    };
+function openExpediente(t){
+document.getElementById("homeSection").style.display="none";
+document.getElementById("cardsSection").style.display="none";
+document.getElementById("expedienteBox").classList.add("active");
 
-    function renderCards() {
-      for (const key in expedientes) {
-        const titulo = document.getElementById("titulo-" + key);
-        const resumen = document.getElementById("resumen-" + key);
-        const imagen = document.getElementById("img-" + key);
+document.getElementById("expedienteTitulo").innerText=expedientes[t].titulo;
+document.getElementById("expedienteTexto").innerText=expedientes[t].texto;
+document.getElementById("expedienteImagen").src=expedientes[t].imagen;
+}
 
-        if (titulo) titulo.textContent = expedientes[key].titulo;
-        if (resumen) resumen.textContent = expedientes[key].resumen;
-        if (imagen) {
-          imagen.src = expedientes[key].imagen;
-          imagen.alt = expedientes[key].titulo;
-        }
-      }
-    }
+function showHome(){
+document.getElementById("homeSection").style.display="block";
+document.getElementById("cardsSection").style.display="block";
+document.getElementById("expedienteBox").classList.remove("active");
+document.getElementById("adminPanel").classList.remove("active");
+}
 
-    function openExpediente(tipo) {
-      document.getElementById("homeSection").style.display = "none";
-      document.getElementById("cardsSection").style.display = "none";
-      document.getElementById("adminPanel").classList.remove("active");
+function toggleAdmin(){
+document.getElementById("homeSection").style.display="none";
+document.getElementById("cardsSection").style.display="none";
+document.getElementById("adminPanel").classList.add("active");
+}
 
-      document.getElementById("expedienteTitulo").textContent = expedientes[tipo].titulo;
-      document.getElementById("expedienteTexto").textContent = expedientes[tipo].texto;
-      document.getElementById("expedienteImagen").src = expedientes[tipo].imagen;
-      document.getElementById("expedienteImagen").alt = expedientes[tipo].titulo;
+function saveExpediente(){
+alert("Cambios aplicados (temporal)");
+}
+</script>
 
-      document.getElementById("expedienteBox").classList.add("active");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    function showHome() {
-      document.getElementById("homeSection").style.display = "block";
-      document.getElementById("cardsSection").style.display = "block";
-      document.getElementById("expedienteBox").classList.remove("active");
-      document.getElementById("adminPanel").classList.remove("active");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    function toggleAdmin() {
-      document.getElementById("homeSection").style.display = "none";
-      document.getElementById("cardsSection").style.display = "none";
-      document.getElementById("expedienteBox").classList.remove("active");
-      document.getElementById("adminPanel").classList.add("active");
-      loadAdminData();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    function loadAdminData() {
-      const tipo = document.getElementById("expedienteSelect").value;
-      document.getElementById("adminTitulo").value = expedientes[tipo].titulo;
-      document.getElementById("adminResumen").value = expedientes[tipo].resumen;
-      document.getElementById("adminImagen").value = expedientes[tipo].imagen;
-      document.getElementById("adminTexto").value = expedientes[tipo].texto;
-    }
-
-    function saveExpediente() {
-      const tipo = document.getElementById("expedienteSelect").value;
-
-      expedientes[tipo].titulo = document.getElementById("adminTitulo").value;
-      expedientes[tipo].resumen = document.getElementById("adminResumen").value;
-      expedientes[tipo].imagen = document.getElementById("adminImagen").value;
-      expedientes[tipo].texto = document.getElementById("adminTexto").value;
-
-      renderCards();
-      alert("Cambios aplicados correctamente.");
-    }
-
-    renderCards();
-  </script>
 </body>
 </html>
