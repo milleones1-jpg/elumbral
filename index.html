@@ -20,12 +20,12 @@
     }
 
     .overlay {
-      background: rgba(0, 0, 0, 0.78);
+      background: rgba(0, 0, 0, 0.80);
       min-height: 100vh;
     }
 
     .container {
-      max-width: 1250px;
+      max-width: 1280px;
       margin: auto;
       padding: 20px;
     }
@@ -108,6 +108,13 @@
       border-color: rgba(245, 215, 122, 0.6);
     }
 
+    .premium-btn {
+      background: linear-gradient(135deg, rgba(212,175,55,0.22), rgba(255,255,255,0.06));
+      border: 1px solid rgba(245, 215, 122, 0.65) !important;
+      color: #f5d77a !important;
+      font-weight: bold;
+    }
+
     .hero {
       text-align: center;
       padding: 60px 20px 45px;
@@ -127,11 +134,22 @@
       color: #ededed;
     }
 
+    .hero-badge {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(245,215,122,0.4);
+      color: #f5d77a;
+      background: rgba(255,255,255,0.05);
+      font-size: 0.92rem;
+    }
+
     .section-title {
       text-align: center;
       color: #f5d77a;
       font-size: 2rem;
-      margin: 25px 0 25px;
+      margin: 25px 0;
     }
 
     .cards {
@@ -150,6 +168,7 @@
       transition: 0.3s;
       box-shadow: 0 8px 22px rgba(0,0,0,0.28);
       border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
     }
 
     .card:hover {
@@ -179,6 +198,19 @@
       color: #efefef;
       line-height: 1.55;
       font-size: 0.98rem;
+    }
+
+    .premium-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(212,175,55,0.95);
+      color: black;
+      font-weight: bold;
+      font-size: 0.8rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     }
 
     .panel-box {
@@ -218,6 +250,73 @@
       white-space: pre-line;
     }
 
+    .premium-intro {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .premium-intro h2 {
+      color: #f5d77a;
+      margin-bottom: 10px;
+      font-size: 2rem;
+    }
+
+    .premium-intro p {
+      max-width: 850px;
+      margin: auto;
+      color: #ededed;
+      line-height: 1.7;
+    }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+      margin: 25px 0 30px;
+    }
+
+    .plan {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(245,215,122,0.2);
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.2);
+    }
+
+    .plan h3 {
+      color: #f5d77a;
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .plan-price {
+      font-size: 2rem;
+      color: white;
+      margin-bottom: 14px;
+      font-weight: bold;
+    }
+
+    .plan ul {
+      padding-left: 18px;
+      line-height: 1.8;
+      color: #efefef;
+    }
+
+    .premium-login {
+      background: rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,0.08);
+      margin-top: 10px;
+    }
+
+    .premium-login h3 {
+      color: #f5d77a;
+      margin-bottom: 14px;
+      font-size: 1.4rem;
+    }
+
+    .premium-login label,
     .admin-form label {
       display: block;
       margin: 16px 0 8px;
@@ -225,6 +324,7 @@
       font-weight: bold;
     }
 
+    .premium-login input,
     .admin-form input,
     .admin-form textarea,
     .admin-form select {
@@ -241,9 +341,17 @@
       resize: vertical;
     }
 
-    .save-btn,
-    .back-btn {
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
       margin-top: 18px;
+    }
+
+    .save-btn,
+    .back-btn,
+    .enter-btn,
+    .unlock-btn {
       background: #d4af37;
       color: black;
       border: none;
@@ -256,8 +364,47 @@
     }
 
     .save-btn:hover,
-    .back-btn:hover {
+    .back-btn:hover,
+    .enter-btn:hover,
+    .unlock-btn:hover {
       background: #f0c94d;
+    }
+
+    .ghost-btn {
+      background: rgba(255,255,255,0.07);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 11px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-family: inherit;
+      transition: 0.3s;
+    }
+
+    .ghost-btn:hover {
+      background: rgba(255,255,255,0.12);
+      color: #f5d77a;
+    }
+
+    .locked-box {
+      text-align: center;
+      padding: 30px 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(245,215,122,0.2);
+      border-radius: 14px;
+    }
+
+    .locked-box h3 {
+      color: #f5d77a;
+      margin-bottom: 10px;
+      font-size: 1.6rem;
+    }
+
+    .locked-box p {
+      max-width: 720px;
+      margin: auto;
+      color: #efefef;
     }
 
     .footer {
@@ -320,7 +467,6 @@
                   stroke-linejoin="round"
                 />
               </g>
-
               <circle cx="150" cy="150" r="45" fill="black" stroke="#d4af37" stroke-width="2"/>
               <path
                 d="M150 105
@@ -348,11 +494,13 @@
           <a href="#" onclick="openExpediente('tierra'); return false;">Tierra plana</a>
           <a href="#" onclick="openExpediente('matrix'); return false;">Matrix</a>
           <a href="#" onclick="openExpediente('lectores'); return false;">Lectores</a>
+          <button class="premium-btn" onclick="showPremium()">Premium</button>
           <button onclick="toggleAdmin()">Administrador</button>
         </nav>
       </header>
 
       <section class="hero" id="homeSection">
+        <div class="hero-badge">Portal de investigación y contenido exclusivo</div>
         <h1>Bienvenido a EL UMBRAL</h1>
         <p>
           Explora los grandes enigmas del mundo: ovnis, razas alienígenas, civilizaciones perdidas,
@@ -427,7 +575,120 @@
         <img id="expedienteImagen" src="" alt="">
         <h2 id="expedienteTitulo"></h2>
         <p id="expedienteTexto"></p>
-        <button class="back-btn" onclick="showHome()">Volver al inicio</button>
+        <div class="button-row">
+          <button class="back-btn" onclick="showHome()">Volver al inicio</button>
+          <button class="ghost-btn" onclick="showPremium()">Ir a Premium</button>
+        </div>
+      </section>
+
+      <section class="panel-box" id="premiumSection">
+        <div class="premium-intro">
+          <h2>Zona Premium de EL UMBRAL</h2>
+          <p>
+            Accede a expedientes exclusivos, análisis ampliados, dossiers secretos,
+            archivos especiales, investigaciones profundas y contenido reservado
+            para miembros premium.
+          </p>
+        </div>
+
+        <div class="plans">
+          <div class="plan">
+            <h3>Plan Mensual</h3>
+            <div class="plan-price">4,99 €</div>
+            <ul>
+              <li>Acceso a expedientes premium</li>
+              <li>Lectura de análisis ampliados</li>
+              <li>Casos exclusivos cada mes</li>
+              <li>Zona privada de contenidos</li>
+            </ul>
+          </div>
+
+          <div class="plan">
+            <h3>Plan Anual</h3>
+            <div class="plan-price">39,99 €</div>
+            <ul>
+              <li>Todo lo del plan mensual</li>
+              <li>Ahorro frente al pago mes a mes</li>
+              <li>Prioridad en futuros contenidos</li>
+              <li>Acceso anticipado a especiales</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="premium-login" id="premiumLoginBox">
+          <h3>Acceso Premium</h3>
+          <label for="premiumUser">Usuario</label>
+          <input type="text" id="premiumUser" placeholder="Escribe tu usuario premium">
+
+          <label for="premiumPass">Contraseña</label>
+          <input type="password" id="premiumPass" placeholder="Escribe tu contraseña">
+
+          <div class="button-row">
+            <button class="enter-btn" onclick="unlockPremium()">Entrar</button>
+            <button class="ghost-btn" onclick="simulateSubscription()">Simular suscripción</button>
+            <button class="ghost-btn" onclick="showHome()">Volver</button>
+          </div>
+        </div>
+
+        <div id="premiumLocked" class="locked-box">
+          <h3>Contenido premium bloqueado</h3>
+          <p>
+            Esta zona contiene expedientes especiales y material exclusivo para miembros.
+            Introduce tus datos o pulsa en “Simular suscripción” para ver cómo quedaría la zona premium activa.
+          </p>
+        </div>
+
+        <div id="premiumUnlocked" style="display:none;">
+          <h2 class="section-title" style="margin-top:30px;">Expedientes Premium</h2>
+
+          <div class="cards">
+            <article class="card" onclick="openPremiumExpediente('bases')">
+              <div class="premium-tag">Premium</div>
+              <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1200&auto=format&fit=crop" alt="Bases ocultas">
+              <div class="card-content">
+                <h3>Bases ocultas y zonas restringidas</h3>
+                <p>Investigaciones sobre enclaves secretos, instalaciones subterráneas y lugares vetados.</p>
+              </div>
+            </article>
+
+            <article class="card" onclick="openPremiumExpediente('expedientesx')">
+              <div class="premium-tag">Premium</div>
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" alt="Archivos secretos">
+              <div class="card-content">
+                <h3>Archivos reservados y documentos clasificados</h3>
+                <p>Material ampliado, teorías prohibidas y análisis exclusivos del equipo de EL UMBRAL.</p>
+              </div>
+            </article>
+
+            <article class="card" onclick="openPremiumExpediente('rituales')">
+              <div class="premium-tag">Premium</div>
+              <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop" alt="Simbología oculta">
+              <div class="card-content">
+                <h3>Simbología oculta, rituales y sociedades secretas</h3>
+                <p>Estudio de símbolos, corrientes esotéricas y conexiones históricas ocultas.</p>
+              </div>
+            </article>
+
+            <article class="card" onclick="openPremiumExpediente('cronicas')">
+              <div class="premium-tag">Premium</div>
+              <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=1200&auto=format&fit=crop" alt="Crónicas exclusivas">
+              <div class="card-content">
+                <h3>Crónicas exclusivas del más allá</h3>
+                <p>Relatos largos, análisis y recopilaciones especiales solo para suscriptores.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel-box" id="premiumExpedienteBox">
+        <img id="premiumExpedienteImagen" src="" alt="">
+        <h2 id="premiumExpedienteTitulo"></h2>
+        <p id="premiumExpedienteTexto"></p>
+        <div class="button-row">
+          <button class="back-btn" onclick="showPremium()">Volver a Premium</button>
+          <button class="ghost-btn" onclick="showHome()">Ir al inicio</button>
+        </div>
       </section>
 
       <section class="panel-box" id="adminPanel">
@@ -517,6 +778,38 @@
       }
     };
 
+    const premiumExpedientes = {
+      bases: {
+        titulo: "Bases ocultas y zonas restringidas",
+        imagen: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1200&auto=format&fit=crop",
+        texto: "Dossier premium sobre instalaciones restringidas, teorías sobre bases subterráneas y enclaves vinculados a operaciones secretas.\n\nAquí puedes desarrollar teorías, mapas, testimonios y casos históricos de supuestas áreas vetadas."
+      },
+      expedientesx: {
+        titulo: "Archivos reservados y documentos clasificados",
+        imagen: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
+        texto: "Recopilación premium de documentos, referencias, hipótesis y análisis largos sobre expedientes ocultos.\n\nEs una zona perfecta para publicar material más denso, contenido especial y archivos ampliados."
+      },
+      rituales: {
+        titulo: "Simbología oculta, rituales y sociedades secretas",
+        imagen: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop",
+        texto: "Análisis de símbolos, corrientes esotéricas, órdenes iniciáticas y vínculos históricos entre poder, creencias y rituales.\n\nEste contenido está pensado para artículos especiales de alto interés."
+      },
+      cronicas: {
+        titulo: "Crónicas exclusivas del más allá",
+        imagen: "https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=1200&auto=format&fit=crop",
+        texto: "Relatos largos, análisis exclusivos y recopilaciones especiales para suscriptores.\n\nPuedes usar esta parte para publicar series premium, investigaciones profundas y testimonios reservados."
+      }
+    };
+
+    let premiumAccess = false;
+
+    function hideAllPanels() {
+      document.getElementById("expedienteBox").classList.remove("active");
+      document.getElementById("adminPanel").classList.remove("active");
+      document.getElementById("premiumSection").classList.remove("active");
+      document.getElementById("premiumExpedienteBox").classList.remove("active");
+    }
+
     function renderCards() {
       for (const key in expedientes) {
         const titulo = document.getElementById("titulo-" + key);
@@ -535,7 +828,7 @@
     function openExpediente(tipo) {
       document.getElementById("homeSection").style.display = "none";
       document.getElementById("cardsSection").style.display = "none";
-      document.getElementById("adminPanel").classList.remove("active");
+      hideAllPanels();
       document.getElementById("expedienteBox").classList.add("active");
 
       document.getElementById("expedienteTitulo").textContent = expedientes[tipo].titulo;
@@ -549,8 +842,56 @@
     function showHome() {
       document.getElementById("homeSection").style.display = "block";
       document.getElementById("cardsSection").style.display = "block";
-      document.getElementById("expedienteBox").classList.remove("active");
-      document.getElementById("adminPanel").classList.remove("active");
+      hideAllPanels();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showPremium() {
+      document.getElementById("homeSection").style.display = "none";
+      document.getElementById("cardsSection").style.display = "none";
+      hideAllPanels();
+      document.getElementById("premiumSection").classList.add("active");
+      updatePremiumView();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function updatePremiumView() {
+      document.getElementById("premiumUnlocked").style.display = premiumAccess ? "block" : "none";
+      document.getElementById("premiumLocked").style.display = premiumAccess ? "none" : "block";
+    }
+
+    function unlockPremium() {
+      const user = document.getElementById("premiumUser").value.trim();
+      const pass = document.getElementById("premiumPass").value.trim();
+
+      if (user !== "" && pass !== "") {
+        premiumAccess = true;
+        updatePremiumView();
+        alert("Acceso premium activado correctamente.");
+      } else {
+        alert("Introduce usuario y contraseña para acceder.");
+      }
+    }
+
+    function simulateSubscription() {
+      premiumAccess = true;
+      updatePremiumView();
+      alert("Suscripción premium simulada activada.");
+    }
+
+    function openPremiumExpediente(tipo) {
+      if (!premiumAccess) {
+        alert("Debes activar el acceso premium para entrar en este contenido.");
+        return;
+      }
+
+      hideAllPanels();
+      document.getElementById("premiumExpedienteBox").classList.add("active");
+
+      document.getElementById("premiumExpedienteTitulo").textContent = premiumExpedientes[tipo].titulo;
+      document.getElementById("premiumExpedienteTexto").textContent = premiumExpedientes[tipo].texto;
+      document.getElementById("premiumExpedienteImagen").src = premiumExpedientes[tipo].imagen;
+      document.getElementById("premiumExpedienteImagen").alt = premiumExpedientes[tipo].titulo;
 
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -558,10 +899,9 @@
     function toggleAdmin() {
       document.getElementById("homeSection").style.display = "none";
       document.getElementById("cardsSection").style.display = "none";
-      document.getElementById("expedienteBox").classList.remove("active");
+      hideAllPanels();
       document.getElementById("adminPanel").classList.add("active");
       loadAdminData();
-
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
