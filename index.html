@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EL UMBRAL</title>
 
   <style>
@@ -10,6 +10,15 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    :root {
+      --gold: #d4af37;
+      --gold-light: #f5d77a;
+      --bg-dark: rgba(0, 0, 0, 0.82);
+      --card-bg: rgba(255,255,255,0.08);
+      --card-border: rgba(255,255,255,0.1);
+      --soft-text: #ececec;
     }
 
     body {
@@ -20,7 +29,7 @@
     }
 
     .overlay {
-      background: rgba(0, 0, 0, 0.80);
+      background: var(--bg-dark);
       min-height: 100vh;
     }
 
@@ -34,16 +43,16 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
       gap: 20px;
+      flex-wrap: wrap;
       padding-bottom: 18px;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
+      border-bottom: 1px solid rgba(255,255,255,0.18);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 14px;
     }
 
     .logo svg {
@@ -67,15 +76,15 @@
 
     .logo-title {
       font-size: 2rem;
-      color: #f5d77a;
+      color: var(--gold-light);
       letter-spacing: 3px;
       font-weight: bold;
       line-height: 1;
     }
 
     .logo-sub {
-      font-size: 0.9rem;
-      color: #d8d8d8;
+      font-size: 0.92rem;
+      color: #d9d9d9;
       margin-top: 6px;
     }
 
@@ -88,9 +97,10 @@
     }
 
     .menu a,
-    .menu button {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.25);
+    .menu button,
+    .menu select {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.22);
       color: white;
       padding: 9px 13px;
       border-radius: 8px;
@@ -98,20 +108,30 @@
       text-decoration: none;
       font-family: inherit;
       font-size: 0.95rem;
-      transition: 0.3s;
+      transition: 0.25s;
     }
 
     .menu a:hover,
-    .menu button:hover {
+    .menu button:hover,
+    .menu select:hover {
       background: rgba(255,255,255,0.12);
-      color: #f5d77a;
-      border-color: rgba(245, 215, 122, 0.6);
+      color: var(--gold-light);
+      border-color: rgba(245,215,122,0.6);
+    }
+
+    .menu select {
+      min-width: 145px;
+      outline: none;
+    }
+
+    .menu select option {
+      color: black;
     }
 
     .premium-btn {
-      background: linear-gradient(135deg, rgba(212,175,55,0.22), rgba(255,255,255,0.06));
-      border: 1px solid rgba(245, 215, 122, 0.65) !important;
-      color: #f5d77a !important;
+      background: linear-gradient(135deg, rgba(212,175,55,0.24), rgba(255,255,255,0.05));
+      border-color: rgba(245,215,122,0.65) !important;
+      color: var(--gold-light) !important;
       font-weight: bold;
     }
 
@@ -120,34 +140,34 @@
       padding: 60px 20px 45px;
     }
 
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 15px;
-      text-shadow: 0 0 12px rgba(0,0,0,0.7);
-    }
-
-    .hero p {
-      max-width: 850px;
-      margin: auto;
-      line-height: 1.7;
-      font-size: 1.1rem;
-      color: #ededed;
-    }
-
     .hero-badge {
       display: inline-block;
       margin-bottom: 18px;
       padding: 8px 16px;
       border-radius: 999px;
-      border: 1px solid rgba(245,215,122,0.4);
-      color: #f5d77a;
+      border: 1px solid rgba(245,215,122,0.35);
+      color: var(--gold-light);
       background: rgba(255,255,255,0.05);
       font-size: 0.92rem;
     }
 
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      text-shadow: 0 0 12px rgba(0,0,0,0.75);
+    }
+
+    .hero p {
+      max-width: 920px;
+      margin: auto;
+      line-height: 1.7;
+      font-size: 1.08rem;
+      color: var(--soft-text);
+    }
+
     .section-title {
       text-align: center;
-      color: #f5d77a;
+      color: var(--gold-light);
       font-size: 2rem;
       margin: 25px 0;
     }
@@ -161,19 +181,19 @@
     }
 
     .card {
-      background: rgba(255,255,255,0.08);
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
       border-radius: 14px;
       overflow: hidden;
       cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.28);
-      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.25s;
       position: relative;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.28);
     }
 
     .card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 14px 26px rgba(0,0,0,0.35);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.36);
     }
 
     .card img {
@@ -188,8 +208,8 @@
     }
 
     .card-content h3 {
-      color: #f5d77a;
-      font-size: 1.2rem;
+      color: var(--gold-light);
+      font-size: 1.18rem;
       margin-bottom: 10px;
       line-height: 1.35;
     }
@@ -204,13 +224,12 @@
       position: absolute;
       top: 12px;
       right: 12px;
-      background: rgba(212,175,55,0.95);
+      background: rgba(212,175,55,0.96);
       color: black;
       font-weight: bold;
       font-size: 0.8rem;
       padding: 6px 10px;
       border-radius: 999px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     }
 
     .panel-box {
@@ -237,7 +256,7 @@
     }
 
     .panel-box h2 {
-      color: #f5d77a;
+      color: var(--gold-light);
       margin-bottom: 14px;
       font-size: 2rem;
       line-height: 1.3;
@@ -256,7 +275,7 @@
     }
 
     .premium-intro h2 {
-      color: #f5d77a;
+      color: var(--gold-light);
       margin-bottom: 10px;
       font-size: 2rem;
     }
@@ -264,7 +283,7 @@
     .premium-intro p {
       max-width: 850px;
       margin: auto;
-      color: #ededed;
+      color: var(--soft-text);
       line-height: 1.7;
     }
 
@@ -277,14 +296,13 @@
 
     .plan {
       background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(245,215,122,0.2);
+      border: 1px solid rgba(245,215,122,0.22);
       border-radius: 14px;
       padding: 22px;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.2);
     }
 
     .plan h3 {
-      color: #f5d77a;
+      color: var(--gold-light);
       font-size: 1.35rem;
       margin-bottom: 10px;
     }
@@ -311,7 +329,7 @@
     }
 
     .premium-login h3 {
-      color: #f5d77a;
+      color: var(--gold-light);
       margin-bottom: 14px;
       font-size: 1.4rem;
     }
@@ -320,7 +338,7 @@
     .admin-form label {
       display: block;
       margin: 16px 0 8px;
-      color: #f5d77a;
+      color: var(--gold-light);
       font-weight: bold;
     }
 
@@ -351,22 +369,26 @@
     .save-btn,
     .back-btn,
     .enter-btn,
-    .unlock-btn {
-      background: #d4af37;
-      color: black;
-      border: none;
+    .ghost-btn {
       padding: 11px 18px;
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
       font-family: inherit;
-      transition: 0.3s;
+      transition: 0.25s;
+    }
+
+    .save-btn,
+    .back-btn,
+    .enter-btn {
+      background: var(--gold);
+      color: black;
+      border: none;
     }
 
     .save-btn:hover,
     .back-btn:hover,
-    .enter-btn:hover,
-    .unlock-btn:hover {
+    .enter-btn:hover {
       background: #f0c94d;
     }
 
@@ -374,17 +396,11 @@
       background: rgba(255,255,255,0.07);
       color: white;
       border: 1px solid rgba(255,255,255,0.2);
-      padding: 11px 18px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      font-family: inherit;
-      transition: 0.3s;
     }
 
     .ghost-btn:hover {
       background: rgba(255,255,255,0.12);
-      color: #f5d77a;
+      color: var(--gold-light);
     }
 
     .locked-box {
@@ -393,10 +409,11 @@
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(245,215,122,0.2);
       border-radius: 14px;
+      margin-top: 18px;
     }
 
     .locked-box h3 {
-      color: #f5d77a;
+      color: var(--gold-light);
       margin-bottom: 10px;
       font-size: 1.6rem;
     }
@@ -481,91 +498,96 @@
 
           <div class="logo-text">
             <div class="logo-title">EL UMBRAL</div>
-            <div class="logo-sub">Misterio, símbolos y realidades ocultas</div>
+            <div class="logo-sub" id="logoSub"></div>
           </div>
         </div>
 
         <nav class="menu">
-          <a href="#" onclick="showHome(); return false;">Inicio</a>
-          <a href="#" onclick="openExpediente('ovni'); return false;">OVNI</a>
-          <a href="#" onclick="openExpediente('civilizaciones'); return false;">Civilizaciones</a>
-          <a href="#" onclick="openExpediente('muerte'); return false;">Más allá</a>
-          <a href="#" onclick="openExpediente('paranormal'); return false;">Paranormal</a>
-          <a href="#" onclick="openExpediente('tierra'); return false;">Tierra plana</a>
-          <a href="#" onclick="openExpediente('matrix'); return false;">Matrix</a>
-          <a href="#" onclick="openExpediente('lectores'); return false;">Lectores</a>
-          <button class="premium-btn" onclick="showPremium()">Premium</button>
-          <button onclick="toggleAdmin()">Administrador</button>
+          <a href="#" onclick="showHome(); return false;" id="navHome"></a>
+          <a href="#" onclick="openExpediente('ovni'); return false;" id="navOvni"></a>
+          <a href="#" onclick="openExpediente('civilizaciones'); return false;" id="navCivilizaciones"></a>
+          <a href="#" onclick="openExpediente('muerte'); return false;" id="navMuerte"></a>
+          <a href="#" onclick="openExpediente('paranormal'); return false;" id="navParanormal"></a>
+          <a href="#" onclick="openExpediente('tierra'); return false;" id="navTierra"></a>
+          <a href="#" onclick="openExpediente('matrix'); return false;" id="navMatrix"></a>
+          <a href="#" onclick="openExpediente('lectores'); return false;" id="navLectores"></a>
+          <button class="premium-btn" onclick="showPremium()" id="navPremium"></button>
+          <button onclick="toggleAdmin()" id="navAdmin"></button>
+
+          <select id="languageSelect" onchange="changeLanguage(this.value)">
+            <option value="es">🇪🇸 Español</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="it">🇮🇹 Italiano</option>
+            <option value="pt">🇵🇹 Português</option>
+          </select>
         </nav>
       </header>
 
       <section class="hero" id="homeSection">
-        <div class="hero-badge">Portal de investigación y contenido exclusivo</div>
-        <h1>Bienvenido a EL UMBRAL</h1>
-        <p>
-          Explora los grandes enigmas del mundo: ovnis, razas alienígenas, civilizaciones perdidas,
-          vida después de la muerte, fenómenos paranormales, teorías sobre la realidad
-          y testimonios enviados por nuestros lectores.
-        </p>
+        <div class="hero-badge" id="heroBadge"></div>
+        <h1 id="heroTitle"></h1>
+        <p id="heroText"></p>
       </section>
 
       <section id="cardsSection">
-        <h2 class="section-title">Expedientes destacados</h2>
+        <h2 class="section-title" id="mainSectionTitle"></h2>
 
         <div class="cards">
           <article class="card" onclick="openExpediente('ovni')">
-            <img id="img-ovni" src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200&auto=format&fit=crop" alt="Fenómeno OVNI / Razas alienígenas">
+            <img id="img-ovni" src="" alt="">
             <div class="card-content">
-              <h3 id="titulo-ovni">Fenómeno OVNI / Razas alienígenas</h3>
-              <p id="resumen-ovni">Avistamientos, contactos y teorías sobre civilizaciones extraterrestres.</p>
+              <h3 id="titulo-ovni"></h3>
+              <p id="resumen-ovni"></p>
             </div>
           </article>
 
           <article class="card" onclick="openExpediente('civilizaciones')">
-            <img id="img-civilizaciones" src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=1200&auto=format&fit=crop" alt="Civilizaciones perdidas">
+            <img id="img-civilizaciones" src="" alt="">
             <div class="card-content">
-              <h3 id="titulo-civilizaciones">Civilizaciones perdidas</h3>
-              <p id="resumen-civilizaciones">Enigmas arqueológicos, construcciones imposibles y secretos de la antigüedad.</p>
+              <h3 id="titulo-civilizaciones"></h3>
+              <p id="resumen-civilizaciones"></p>
             </div>
           </article>
 
           <article class="card" onclick="openExpediente('muerte')">
-            <img id="img-muerte" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Más allá de la muerte">
+            <img id="img-muerte" src="" alt="">
             <div class="card-content">
-              <h3 id="titulo-muerte">Más allá de la muerte</h3>
-              <p id="resumen-muerte">Experiencias cercanas a la muerte, apariciones y casos inexplicables.</p>
+              <h3 id="titulo-muerte"></h3>
+              <p id="resumen-muerte"></p>
             </div>
           </article>
 
           <article class="card" onclick="openExpediente('paranormal')">
-            <img id="img-paranormal" src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1200&auto=format&fit=crop" alt="Fenómenos paranormales">
+            <img id="img-paranormal" src="" alt="">
             <div class="card-content">
-              <h3 id="titulo-paranormal">Fenómenos paranormales</h3>
-              <p id="resumen-paranormal">Casas encantadas, presencias y sucesos extraños.</p>
+              <h3 id="titulo-paranormal"></h3>
+              <p id="resumen-paranormal"></p>
             </div>
           </article>
 
           <article class="card" onclick="openExpediente('tierra')">
-            <img id="img-tierra" src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1200&auto=format&fit=crop" alt="Tierra plana">
+            <img id="img-tierra" src="" alt="">
             <div class="card-content">
-              <h3 id="titulo-tierra">Tierra plana</h3>
-              <p id="resumen-tierra">Teorías alternativas sobre la forma real de nuestro mundo.</p>
+              <h3 id="titulo-tierra"></h3>
+              <p id="resumen-tierra"></p>
             </div>
           </article>
 
           <article class="card" onclick="openExpediente('matrix')">
-            <img id="img-matrix" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop" alt="La Matrix o el juego de la vida">
+            <img id="img-matrix" src="" alt="">
             <div class="card-content">
-              <h3 id="titulo-matrix">La Matrix o el juego de la vida</h3>
-              <p id="resumen-matrix">¿Vivimos en una simulación? ¿Es la vida un juego?</p>
+              <h3 id="titulo-matrix"></h3>
+              <p id="resumen-matrix"></p>
             </div>
           </article>
 
           <article class="card" onclick="openExpediente('lectores')">
-            <img id="img-lectores" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop" alt="Historias de nuestros lectores">
+            <img id="img-lectores" src="" alt="">
             <div class="card-content">
-              <h3 id="titulo-lectores">Historias de nuestros lectores</h3>
-              <p id="resumen-lectores">Relatos, vivencias y sucesos enviados por la comunidad.</p>
+              <h3 id="titulo-lectores"></h3>
+              <p id="resumen-lectores"></p>
             </div>
           </article>
         </div>
@@ -576,105 +598,89 @@
         <h2 id="expedienteTitulo"></h2>
         <p id="expedienteTexto"></p>
         <div class="button-row">
-          <button class="back-btn" onclick="showHome()">Volver al inicio</button>
-          <button class="ghost-btn" onclick="showPremium()">Ir a Premium</button>
+          <button class="back-btn" onclick="showHome()" id="btnBackHome"></button>
+          <button class="ghost-btn" onclick="showPremium()" id="btnGoPremium"></button>
         </div>
       </section>
 
       <section class="panel-box" id="premiumSection">
         <div class="premium-intro">
-          <h2>Zona Premium de EL UMBRAL</h2>
-          <p>
-            Accede a expedientes exclusivos, análisis ampliados, dossiers secretos,
-            archivos especiales, investigaciones profundas y contenido reservado
-            para miembros premium.
-          </p>
+          <h2 id="premiumTitle"></h2>
+          <p id="premiumText"></p>
         </div>
 
         <div class="plans">
           <div class="plan">
-            <h3>Plan Mensual</h3>
+            <h3 id="planMonthlyTitle"></h3>
             <div class="plan-price">4,99 €</div>
-            <ul>
-              <li>Acceso a expedientes premium</li>
-              <li>Lectura de análisis ampliados</li>
-              <li>Casos exclusivos cada mes</li>
-              <li>Zona privada de contenidos</li>
-            </ul>
+            <ul id="planMonthlyList"></ul>
           </div>
 
           <div class="plan">
-            <h3>Plan Anual</h3>
+            <h3 id="planYearlyTitle"></h3>
             <div class="plan-price">39,99 €</div>
-            <ul>
-              <li>Todo lo del plan mensual</li>
-              <li>Ahorro frente al pago mes a mes</li>
-              <li>Prioridad en futuros contenidos</li>
-              <li>Acceso anticipado a especiales</li>
-            </ul>
+            <ul id="planYearlyList"></ul>
           </div>
         </div>
 
-        <div class="premium-login" id="premiumLoginBox">
-          <h3>Acceso Premium</h3>
-          <label for="premiumUser">Usuario</label>
-          <input type="text" id="premiumUser" placeholder="Escribe tu usuario premium">
+        <div class="premium-login">
+          <h3 id="premiumAccessTitle"></h3>
 
-          <label for="premiumPass">Contraseña</label>
-          <input type="password" id="premiumPass" placeholder="Escribe tu contraseña">
+          <label for="premiumUser" id="premiumUserLabel"></label>
+          <input type="text" id="premiumUser">
+
+          <label for="premiumPass" id="premiumPassLabel"></label>
+          <input type="password" id="premiumPass">
 
           <div class="button-row">
-            <button class="enter-btn" onclick="unlockPremium()">Entrar</button>
-            <button class="ghost-btn" onclick="simulateSubscription()">Simular suscripción</button>
-            <button class="ghost-btn" onclick="showHome()">Volver</button>
+            <button class="enter-btn" onclick="unlockPremium()" id="btnEnterPremium"></button>
+            <button class="ghost-btn" onclick="simulateSubscription()" id="btnSimulateSubscription"></button>
+            <button class="ghost-btn" onclick="showHome()" id="btnPremiumBack"></button>
           </div>
         </div>
 
         <div id="premiumLocked" class="locked-box">
-          <h3>Contenido premium bloqueado</h3>
-          <p>
-            Esta zona contiene expedientes especiales y material exclusivo para miembros.
-            Introduce tus datos o pulsa en “Simular suscripción” para ver cómo quedaría la zona premium activa.
-          </p>
+          <h3 id="premiumLockedTitle"></h3>
+          <p id="premiumLockedText"></p>
         </div>
 
         <div id="premiumUnlocked" style="display:none;">
-          <h2 class="section-title" style="margin-top:30px;">Expedientes Premium</h2>
+          <h2 class="section-title" id="premiumFilesTitle"></h2>
 
           <div class="cards">
             <article class="card" onclick="openPremiumExpediente('bases')">
-              <div class="premium-tag">Premium</div>
-              <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1200&auto=format&fit=crop" alt="Bases ocultas">
+              <div class="premium-tag" id="premiumTag1"></div>
+              <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1200&auto=format&fit=crop" alt="">
               <div class="card-content">
-                <h3>Bases ocultas y zonas restringidas</h3>
-                <p>Investigaciones sobre enclaves secretos, instalaciones subterráneas y lugares vetados.</p>
+                <h3 id="premiumCard1Title"></h3>
+                <p id="premiumCard1Text"></p>
               </div>
             </article>
 
             <article class="card" onclick="openPremiumExpediente('expedientesx')">
-              <div class="premium-tag">Premium</div>
-              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" alt="Archivos secretos">
+              <div class="premium-tag" id="premiumTag2"></div>
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" alt="">
               <div class="card-content">
-                <h3>Archivos reservados y documentos clasificados</h3>
-                <p>Material ampliado, teorías prohibidas y análisis exclusivos del equipo de EL UMBRAL.</p>
+                <h3 id="premiumCard2Title"></h3>
+                <p id="premiumCard2Text"></p>
               </div>
             </article>
 
             <article class="card" onclick="openPremiumExpediente('rituales')">
-              <div class="premium-tag">Premium</div>
-              <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop" alt="Simbología oculta">
+              <div class="premium-tag" id="premiumTag3"></div>
+              <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop" alt="">
               <div class="card-content">
-                <h3>Simbología oculta, rituales y sociedades secretas</h3>
-                <p>Estudio de símbolos, corrientes esotéricas y conexiones históricas ocultas.</p>
+                <h3 id="premiumCard3Title"></h3>
+                <p id="premiumCard3Text"></p>
               </div>
             </article>
 
             <article class="card" onclick="openPremiumExpediente('cronicas')">
-              <div class="premium-tag">Premium</div>
-              <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=1200&auto=format&fit=crop" alt="Crónicas exclusivas">
+              <div class="premium-tag" id="premiumTag4"></div>
+              <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=1200&auto=format&fit=crop" alt="">
               <div class="card-content">
-                <h3>Crónicas exclusivas del más allá</h3>
-                <p>Relatos largos, análisis y recopilaciones especiales solo para suscriptores.</p>
+                <h3 id="premiumCard4Title"></h3>
+                <p id="premiumCard4Text"></p>
               </div>
             </article>
           </div>
@@ -686,143 +692,987 @@
         <h2 id="premiumExpedienteTitulo"></h2>
         <p id="premiumExpedienteTexto"></p>
         <div class="button-row">
-          <button class="back-btn" onclick="showPremium()">Volver a Premium</button>
-          <button class="ghost-btn" onclick="showHome()">Ir al inicio</button>
+          <button class="back-btn" onclick="showPremium()" id="btnBackPremium"></button>
+          <button class="ghost-btn" onclick="showHome()" id="btnGoHome2"></button>
         </div>
       </section>
 
       <section class="panel-box" id="adminPanel">
-        <h2>Panel de Administrador</h2>
-        <p style="margin-bottom: 12px; color: #efefef;">
-          Aquí puedes editar el título, resumen, imagen y texto de cada expediente.
-        </p>
+        <h2 id="adminTitle"></h2>
+        <p id="adminText" style="margin-bottom: 12px; color: #efefef;"></p>
 
         <div class="admin-form">
-          <label for="expedienteSelect">Selecciona expediente</label>
-          <select id="expedienteSelect" onchange="loadAdminData()">
-            <option value="ovni">Fenómeno OVNI / Razas alienígenas</option>
-            <option value="civilizaciones">Civilizaciones perdidas</option>
-            <option value="muerte">Más allá de la muerte</option>
-            <option value="paranormal">Fenómenos paranormales</option>
-            <option value="tierra">Tierra plana</option>
-            <option value="matrix">La Matrix o el juego de la vida</option>
-            <option value="lectores">Historias de nuestros lectores</option>
-          </select>
+          <label for="expedienteSelect" id="adminSelectLabel"></label>
+          <select id="expedienteSelect" onchange="loadAdminData()"></select>
 
-          <label for="adminTitulo">Título</label>
+          <label for="adminTitulo" id="adminTitleLabel"></label>
           <input type="text" id="adminTitulo">
 
-          <label for="adminResumen">Resumen corto</label>
+          <label for="adminResumen" id="adminSummaryLabel"></label>
           <input type="text" id="adminResumen">
 
-          <label for="adminImagen">URL de imagen</label>
+          <label for="adminImagen" id="adminImageLabel"></label>
           <input type="text" id="adminImagen">
 
-          <label for="adminTexto">Texto completo</label>
+          <label for="adminTexto" id="adminTextLabel"></label>
           <textarea id="adminTexto"></textarea>
 
-          <button class="save-btn" onclick="saveExpediente()">Guardar cambios</button>
+          <button class="save-btn" onclick="saveExpediente()" id="btnSaveChanges"></button>
         </div>
       </section>
 
-      <footer class="footer">
-        © 2026 EL UMBRAL
-      </footer>
-
+      <footer class="footer" id="footerText"></footer>
     </div>
   </div>
 
   <script>
-    const expedientes = {
-      ovni: {
-        titulo: "Fenómeno OVNI / Razas alienígenas",
-        resumen: "Avistamientos, contactos y teorías sobre civilizaciones extraterrestres.",
-        imagen: "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200&auto=format&fit=crop",
-        texto: "El fenómeno OVNI reúne avistamientos, documentos, teorías y testimonios relacionados con objetos voladores no identificados y posibles civilizaciones extraterrestres.\n\nEn este apartado puedes incluir información sobre razas alienígenas, encuentros cercanos, informes desclasificados, teorías de contacto y casos históricos de todo el mundo."
+    const images = {
+      ovni: "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200&auto=format&fit=crop",
+      civilizaciones: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=1200&auto=format&fit=crop",
+      muerte: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop",
+      paranormal: "https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1200&auto=format&fit=crop",
+      tierra: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1200&auto=format&fit=crop",
+      matrix: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop",
+      lectores: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop"
+    };
+
+    const contentByLang = {
+      es: {
+        ui: {
+          htmlLang: "es",
+          logoSub: "Misterio, símbolos y realidades ocultas",
+          navHome: "Inicio",
+          navOvni: "OVNI",
+          navCivilizaciones: "Civilizaciones",
+          navMuerte: "Más allá",
+          navParanormal: "Paranormal",
+          navTierra: "Tierra plana",
+          navMatrix: "Matrix",
+          navLectores: "Lectores",
+          navPremium: "Premium",
+          navAdmin: "Administrador",
+          heroBadge: "Portal de investigación y contenido exclusivo",
+          heroTitle: "Bienvenido a EL UMBRAL",
+          heroText: "Explora los grandes enigmas del mundo: ovnis, razas alienígenas, civilizaciones perdidas, vida después de la muerte, fenómenos paranormales, teorías sobre la realidad y testimonios enviados por nuestros lectores.",
+          mainSectionTitle: "Expedientes destacados",
+          btnBackHome: "Volver al inicio",
+          btnGoPremium: "Ir a Premium",
+          premiumTitle: "Zona Premium de EL UMBRAL",
+          premiumText: "Accede a expedientes exclusivos, análisis ampliados, dossiers secretos, archivos especiales, investigaciones profundas y contenido reservado para miembros premium.",
+          planMonthlyTitle: "Plan Mensual",
+          planMonthlyList: [
+            "Acceso a expedientes premium",
+            "Lectura de análisis ampliados",
+            "Casos exclusivos cada mes",
+            "Zona privada de contenidos"
+          ],
+          planYearlyTitle: "Plan Anual",
+          planYearlyList: [
+            "Todo lo del plan mensual",
+            "Ahorro frente al pago mes a mes",
+            "Prioridad en futuros contenidos",
+            "Acceso anticipado a especiales"
+          ],
+          premiumAccessTitle: "Acceso Premium",
+          premiumUserLabel: "Usuario",
+          premiumUserPlaceholder: "Escribe tu usuario premium",
+          premiumPassLabel: "Contraseña",
+          premiumPassPlaceholder: "Escribe tu contraseña",
+          btnEnterPremium: "Entrar",
+          btnSimulateSubscription: "Simular suscripción",
+          btnPremiumBack: "Volver",
+          premiumLockedTitle: "Contenido premium bloqueado",
+          premiumLockedText: "Esta zona contiene expedientes especiales y material exclusivo para miembros. Introduce tus datos o pulsa en “Simular suscripción” para ver cómo quedaría la zona premium activa.",
+          premiumFilesTitle: "Expedientes Premium",
+          premiumTag: "Premium",
+          premiumCard1Title: "Bases ocultas y zonas restringidas",
+          premiumCard1Text: "Investigaciones sobre enclaves secretos, instalaciones subterráneas y lugares vetados.",
+          premiumCard2Title: "Archivos reservados y documentos clasificados",
+          premiumCard2Text: "Material ampliado, teorías prohibidas y análisis exclusivos del equipo de EL UMBRAL.",
+          premiumCard3Title: "Simbología oculta, rituales y sociedades secretas",
+          premiumCard3Text: "Estudio de símbolos, corrientes esotéricas y conexiones históricas ocultas.",
+          premiumCard4Title: "Crónicas exclusivas del más allá",
+          premiumCard4Text: "Relatos largos, análisis y recopilaciones especiales solo para suscriptores.",
+          btnBackPremium: "Volver a Premium",
+          btnGoHome2: "Ir al inicio",
+          adminTitle: "Panel de Administrador",
+          adminText: "Aquí puedes editar el título, resumen, imagen y texto de cada expediente.",
+          adminSelectLabel: "Selecciona expediente",
+          adminTitleLabel: "Título",
+          adminSummaryLabel: "Resumen corto",
+          adminImageLabel: "URL de imagen",
+          adminTextLabel: "Texto completo",
+          btnSaveChanges: "Guardar cambios",
+          footerText: "© 2026 EL UMBRAL",
+          alerts: {
+            premiumOk: "Acceso premium activado correctamente.",
+            premiumNeedData: "Introduce usuario y contraseña para acceder.",
+            premiumSimulated: "Suscripción premium simulada activada.",
+            premiumRequired: "Debes activar el acceso premium para entrar en este contenido.",
+            saved: "Cambios aplicados correctamente en esta sesión."
+          }
+        },
+        expedientes: {
+          ovni: {
+            titulo: "Fenómeno OVNI / Razas alienígenas",
+            resumen: "Avistamientos, contactos y teorías sobre civilizaciones extraterrestres.",
+            texto: "El fenómeno OVNI reúne avistamientos, documentos, teorías y testimonios relacionados con objetos voladores no identificados y posibles civilizaciones extraterrestres.\n\nEn este apartado puedes incluir información sobre razas alienígenas, encuentros cercanos, informes desclasificados, teorías de contacto y casos históricos de todo el mundo."
+          },
+          civilizaciones: {
+            titulo: "Civilizaciones perdidas",
+            resumen: "Enigmas arqueológicos, construcciones imposibles y secretos de la antigüedad.",
+            texto: "Las civilizaciones perdidas despiertan preguntas sobre ciudades desaparecidas, conocimientos olvidados y culturas avanzadas de la antigüedad.\n\nAquí puedes añadir contenidos sobre la Atlántida, Lemuria, Egipto, Göbekli Tepe, monumentos imposibles y otros grandes misterios históricos."
+          },
+          muerte: {
+            titulo: "Más allá de la muerte",
+            resumen: "Experiencias cercanas a la muerte, apariciones y casos inexplicables.",
+            texto: "Este expediente está dedicado a testimonios sobre experiencias cercanas a la muerte, visiones, apariciones y posibles señales del más allá.\n\nPuedes incluir aquí relatos personales, investigaciones, opiniones de especialistas y casos que desafían la explicación convencional."
+          },
+          paranormal: {
+            titulo: "Fenómenos paranormales",
+            resumen: "Casas encantadas, presencias y sucesos extraños.",
+            texto: "Aquí tienen cabida historias de casas encantadas, objetos que se mueven solos, psicofonías, apariciones, sombras y sucesos sin explicación aparente.\n\nEs un espacio ideal para reunir casos impactantes y testimonios escalofriantes."
+          },
+          tierra: {
+            titulo: "Tierra plana",
+            resumen: "Teorías alternativas sobre la forma real de nuestro mundo.",
+            texto: "Este apartado recoge teorías, hipótesis y debates sobre la posibilidad de que la Tierra tenga una forma distinta a la aceptada oficialmente.\n\nAquí puedes añadir argumentos, vídeos, comparativas, mapas alternativos y opiniones sobre esta teoría."
+          },
+          matrix: {
+            titulo: "La Matrix o el juego de la vida",
+            resumen: "¿Vivimos en una simulación? ¿Es la vida un juego?",
+            texto: "Teorías filosóficas, tecnológicas y existenciales sobre la naturaleza de la realidad.\n\nEste expediente puede reunir ideas sobre simulación, inteligencia artificial, conciencia, destino, libre albedrío y la posibilidad de que nuestra existencia funcione como un gran juego o programa."
+          },
+          lectores: {
+            titulo: "Historias de nuestros lectores",
+            resumen: "Relatos, vivencias y sucesos enviados por la comunidad.",
+            texto: "Espacio reservado para que los visitantes compartan sus experiencias paranormales, avistamientos, sueños premonitorios o cualquier suceso extraño que hayan vivido.\n\nAquí puedes publicar testimonios reales enviados por los lectores de EL UMBRAL."
+          }
+        },
+        premiumExpedientes: {
+          bases: {
+            titulo: "Bases ocultas y zonas restringidas",
+            texto: "Dossier premium sobre instalaciones restringidas, teorías sobre bases subterráneas y enclaves vinculados a operaciones secretas.\n\nAquí puedes desarrollar teorías, mapas, testimonios y casos históricos de supuestas áreas vetadas."
+          },
+          expedientesx: {
+            titulo: "Archivos reservados y documentos clasificados",
+            texto: "Recopilación premium de documentos, referencias, hipótesis y análisis largos sobre expedientes ocultos.\n\nEs una zona perfecta para publicar material más denso, contenido especial y archivos ampliados."
+          },
+          rituales: {
+            titulo: "Simbología oculta, rituales y sociedades secretas",
+            texto: "Análisis de símbolos, corrientes esotéricas, órdenes iniciáticas y vínculos históricos entre poder, creencias y rituales.\n\nEste contenido está pensado para artículos especiales de alto interés."
+          },
+          cronicas: {
+            titulo: "Crónicas exclusivas del más allá",
+            texto: "Relatos largos, análisis exclusivos y recopilaciones especiales para suscriptores.\n\nPuedes usar esta parte para publicar series premium, investigaciones profundas y testimonios reservados."
+          }
+        }
       },
-      civilizaciones: {
-        titulo: "Civilizaciones perdidas",
-        resumen: "Enigmas arqueológicos, construcciones imposibles y secretos de la antigüedad.",
-        imagen: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=1200&auto=format&fit=crop",
-        texto: "Las civilizaciones perdidas despiertan preguntas sobre ciudades desaparecidas, conocimientos olvidados y culturas avanzadas de la antigüedad.\n\nAquí puedes añadir contenidos sobre la Atlántida, Lemuria, Egipto, Göbekli Tepe, monumentos imposibles y otros grandes misterios históricos."
+
+      en: {
+        ui: {
+          htmlLang: "en",
+          logoSub: "Mystery, symbols and hidden realities",
+          navHome: "Home",
+          navOvni: "UFO",
+          navCivilizaciones: "Civilizations",
+          navMuerte: "Beyond",
+          navParanormal: "Paranormal",
+          navTierra: "Flat Earth",
+          navMatrix: "Matrix",
+          navLectores: "Readers",
+          navPremium: "Premium",
+          navAdmin: "Admin",
+          heroBadge: "Research portal and exclusive content",
+          heroTitle: "Welcome to EL UMBRAL",
+          heroText: "Explore the great enigmas of the world: UFOs, alien races, lost civilizations, life after death, paranormal phenomena, theories about reality and testimonies sent by our readers.",
+          mainSectionTitle: "Featured files",
+          btnBackHome: "Back to home",
+          btnGoPremium: "Go to Premium",
+          premiumTitle: "EL UMBRAL Premium Zone",
+          premiumText: "Access exclusive files, extended analyses, secret dossiers, special archives, deep investigations and content reserved for premium members.",
+          planMonthlyTitle: "Monthly Plan",
+          planMonthlyList: [
+            "Access to premium files",
+            "Read extended analyses",
+            "Exclusive cases every month",
+            "Private content area"
+          ],
+          planYearlyTitle: "Annual Plan",
+          planYearlyList: [
+            "Everything in the monthly plan",
+            "Savings compared to monthly billing",
+            "Priority in future content",
+            "Early access to specials"
+          ],
+          premiumAccessTitle: "Premium Access",
+          premiumUserLabel: "User",
+          premiumUserPlaceholder: "Enter your premium username",
+          premiumPassLabel: "Password",
+          premiumPassPlaceholder: "Enter your password",
+          btnEnterPremium: "Enter",
+          btnSimulateSubscription: "Simulate subscription",
+          btnPremiumBack: "Back",
+          premiumLockedTitle: "Premium content locked",
+          premiumLockedText: "This area contains special files and exclusive material for members. Enter your details or click “Simulate subscription” to see how the active premium area would look.",
+          premiumFilesTitle: "Premium Files",
+          premiumTag: "Premium",
+          premiumCard1Title: "Hidden bases and restricted zones",
+          premiumCard1Text: "Investigations into secret enclaves, underground facilities and forbidden places.",
+          premiumCard2Title: "Reserved archives and classified documents",
+          premiumCard2Text: "Expanded material, forbidden theories and exclusive analyses from the EL UMBRAL team.",
+          premiumCard3Title: "Hidden symbolism, rituals and secret societies",
+          premiumCard3Text: "Study of symbols, esoteric currents and hidden historical connections.",
+          premiumCard4Title: "Exclusive chronicles from beyond",
+          premiumCard4Text: "Long-form stories, analyses and special compilations for subscribers only.",
+          btnBackPremium: "Back to Premium",
+          btnGoHome2: "Go home",
+          adminTitle: "Admin Panel",
+          adminText: "Here you can edit the title, summary, image and text of each file.",
+          adminSelectLabel: "Select file",
+          adminTitleLabel: "Title",
+          adminSummaryLabel: "Short summary",
+          adminImageLabel: "Image URL",
+          adminTextLabel: "Full text",
+          btnSaveChanges: "Save changes",
+          footerText: "© 2026 EL UMBRAL",
+          alerts: {
+            premiumOk: "Premium access activated successfully.",
+            premiumNeedData: "Enter username and password to access.",
+            premiumSimulated: "Simulated premium subscription activated.",
+            premiumRequired: "You must activate premium access to enter this content.",
+            saved: "Changes applied correctly in this session."
+          }
+        },
+        expedientes: {
+          ovni: {
+            titulo: "UFO Phenomenon / Alien Races",
+            resumen: "Sightings, contacts and theories about extraterrestrial civilizations.",
+            texto: "The UFO phenomenon brings together sightings, documents, theories and testimonies related to unidentified flying objects and possible extraterrestrial civilizations.\n\nIn this section you can include information about alien races, close encounters, declassified reports, contact theories and historical cases from around the world."
+          },
+          civilizaciones: {
+            titulo: "Lost Civilizations",
+            resumen: "Archaeological enigmas, impossible constructions and secrets of antiquity.",
+            texto: "Lost civilizations raise questions about vanished cities, forgotten knowledge and advanced cultures of antiquity.\n\nHere you can add content about Atlantis, Lemuria, Egypt, Göbekli Tepe, impossible monuments and other great historical mysteries."
+          },
+          muerte: {
+            titulo: "Beyond Death",
+            resumen: "Near-death experiences, apparitions and unexplained cases.",
+            texto: "This file is dedicated to testimonies about near-death experiences, visions, apparitions and possible signs from beyond.\n\nYou can include personal accounts, investigations, expert opinions and cases that defy conventional explanation."
+          },
+          paranormal: {
+            titulo: "Paranormal Phenomena",
+            resumen: "Haunted houses, presences and strange events.",
+            texto: "This section includes haunted house stories, moving objects, EVP recordings, apparitions, shadows and events with no apparent explanation.\n\nIt is an ideal space to gather shocking cases and chilling testimonies."
+          },
+          tierra: {
+            titulo: "Flat Earth",
+            resumen: "Alternative theories about the true shape of our world.",
+            texto: "This section gathers theories, hypotheses and debates about the possibility that Earth has a different shape than the officially accepted one.\n\nHere you can add arguments, videos, comparisons, alternative maps and opinions about this theory."
+          },
+          matrix: {
+            titulo: "The Matrix or the Game of Life",
+            resumen: "Are we living in a simulation? Is life a game?",
+            texto: "Philosophical, technological and existential theories about the nature of reality.\n\nThis file can gather ideas about simulation, artificial intelligence, consciousness, destiny, free will and the possibility that our existence functions like a great game or program."
+          },
+          lectores: {
+            titulo: "Stories from Our Readers",
+            resumen: "Accounts, experiences and events sent by the community.",
+            texto: "A space reserved for visitors to share their paranormal experiences, sightings, prophetic dreams or any strange event they have lived through.\n\nHere you can publish real testimonies sent by EL UMBRAL readers."
+          }
+        },
+        premiumExpedientes: {
+          bases: {
+            titulo: "Hidden bases and restricted zones",
+            texto: "Premium dossier about restricted facilities, theories on underground bases and enclaves linked to secret operations.\n\nHere you can develop theories, maps, testimonies and historical cases about alleged forbidden areas."
+          },
+          expedientesx: {
+            titulo: "Reserved archives and classified documents",
+            texto: "Premium compilation of documents, references, hypotheses and long analyses about hidden files.\n\nThis is a perfect area to publish denser material, special content and expanded archives."
+          },
+          rituales: {
+            titulo: "Hidden symbolism, rituals and secret societies",
+            texto: "Analysis of symbols, esoteric currents, initiatory orders and historical links between power, beliefs and rituals.\n\nThis content is designed for special articles of high interest."
+          },
+          cronicas: {
+            titulo: "Exclusive chronicles from beyond",
+            texto: "Long stories, exclusive analyses and special compilations for subscribers.\n\nYou can use this area to publish premium series, deep investigations and reserved testimonies."
+          }
+        }
       },
-      muerte: {
-        titulo: "Más allá de la muerte",
-        resumen: "Experiencias cercanas a la muerte, apariciones y casos inexplicables.",
-        imagen: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop",
-        texto: "Este expediente está dedicado a testimonios sobre experiencias cercanas a la muerte, visiones, apariciones y posibles señales del más allá.\n\nPuedes incluir aquí relatos personales, investigaciones, opiniones de especialistas y casos que desafían la explicación convencional."
+
+      fr: {
+        ui: {
+          htmlLang: "fr",
+          logoSub: "Mystère, symboles et réalités cachées",
+          navHome: "Accueil",
+          navOvni: "OVNI",
+          navCivilizaciones: "Civilisations",
+          navMuerte: "Au-delà",
+          navParanormal: "Paranormal",
+          navTierra: "Terre plate",
+          navMatrix: "Matrix",
+          navLectores: "Lecteurs",
+          navPremium: "Premium",
+          navAdmin: "Admin",
+          heroBadge: "Portail de recherche et contenu exclusif",
+          heroTitle: "Bienvenue à EL UMBRAL",
+          heroText: "Explorez les grandes énigmes du monde : OVNI, races extraterrestres, civilisations perdues, vie après la mort, phénomènes paranormaux, théories sur la réalité et témoignages envoyés par nos lecteurs.",
+          mainSectionTitle: "Dossiers en vedette",
+          btnBackHome: "Retour à l’accueil",
+          btnGoPremium: "Aller à Premium",
+          premiumTitle: "Zone Premium de EL UMBRAL",
+          premiumText: "Accédez à des dossiers exclusifs, analyses approfondies, documents secrets, archives spéciales, enquêtes approfondies et contenus réservés aux membres premium.",
+          planMonthlyTitle: "Plan mensuel",
+          planMonthlyList: [
+            "Accès aux dossiers premium",
+            "Lecture d’analyses approfondies",
+            "Cas exclusifs chaque mois",
+            "Zone de contenu privée"
+          ],
+          planYearlyTitle: "Plan annuel",
+          planYearlyList: [
+            "Tout le contenu du plan mensuel",
+            "Économie par rapport au paiement mensuel",
+            "Priorité sur les futurs contenus",
+            "Accès anticipé aux spéciaux"
+          ],
+          premiumAccessTitle: "Accès Premium",
+          premiumUserLabel: "Utilisateur",
+          premiumUserPlaceholder: "Écrivez votre nom d’utilisateur premium",
+          premiumPassLabel: "Mot de passe",
+          premiumPassPlaceholder: "Écrivez votre mot de passe",
+          btnEnterPremium: "Entrer",
+          btnSimulateSubscription: "Simuler l’abonnement",
+          btnPremiumBack: "Retour",
+          premiumLockedTitle: "Contenu premium verrouillé",
+          premiumLockedText: "Cette zone contient des dossiers spéciaux et du matériel exclusif pour les membres. Entrez vos données ou cliquez sur « Simuler l’abonnement » pour voir à quoi ressemblerait la zone premium active.",
+          premiumFilesTitle: "Dossiers Premium",
+          premiumTag: "Premium",
+          premiumCard1Title: "Bases cachées et zones restreintes",
+          premiumCard1Text: "Enquêtes sur des enclaves secrètes, installations souterraines et lieux interdits.",
+          premiumCard2Title: "Archives réservées et documents classifiés",
+          premiumCard2Text: "Matériel enrichi, théories interdites et analyses exclusives de l’équipe EL UMBRAL.",
+          premiumCard3Title: "Symbolisme caché, rituels et sociétés secrètes",
+          premiumCard3Text: "Étude des symboles, courants ésotériques et connexions historiques cachées.",
+          premiumCard4Title: "Chroniques exclusives de l’au-delà",
+          premiumCard4Text: "Récits longs, analyses et compilations spéciales réservés aux abonnés.",
+          btnBackPremium: "Retour à Premium",
+          btnGoHome2: "Aller à l’accueil",
+          adminTitle: "Panneau d’administration",
+          adminText: "Ici, vous pouvez modifier le titre, le résumé, l’image et le texte de chaque dossier.",
+          adminSelectLabel: "Sélectionnez un dossier",
+          adminTitleLabel: "Titre",
+          adminSummaryLabel: "Résumé court",
+          adminImageLabel: "URL de l’image",
+          adminTextLabel: "Texte complet",
+          btnSaveChanges: "Enregistrer les modifications",
+          footerText: "© 2026 EL UMBRAL",
+          alerts: {
+            premiumOk: "Accès premium activé avec succès.",
+            premiumNeedData: "Entrez le nom d’utilisateur et le mot de passe pour accéder.",
+            premiumSimulated: "Abonnement premium simulé activé.",
+            premiumRequired: "Vous devez activer l’accès premium pour entrer dans ce contenu.",
+            saved: "Modifications appliquées correctement dans cette session."
+          }
+        },
+        expedientes: {
+          ovni: {
+            titulo: "Phénomène OVNI / Races extraterrestres",
+            resumen: "Observations, contacts et théories sur les civilisations extraterrestres.",
+            texto: "Le phénomène OVNI rassemble des observations, des documents, des théories et des témoignages liés aux objets volants non identifiés et aux possibles civilisations extraterrestres.\n\nDans cette section, vous pouvez inclure des informations sur les races extraterrestres, les rencontres rapprochées, les rapports déclassifiés, les théories de contact et les cas historiques du monde entier."
+          },
+          civilizaciones: {
+            titulo: "Civilisations perdues",
+            resumen: "Énigmes archéologiques, constructions impossibles et secrets de l’Antiquité.",
+            texto: "Les civilisations perdues soulèvent des questions sur les villes disparues, les connaissances oubliées et les cultures avancées de l’Antiquité.\n\nVous pouvez ajouter ici du contenu sur l’Atlantide, la Lémurie, l’Égypte, Göbekli Tepe, les monuments impossibles et d’autres grands mystères historiques."
+          },
+          muerte: {
+            titulo: "Au-delà de la mort",
+            resumen: "Expériences de mort imminente, apparitions et cas inexpliqués.",
+            texto: "Ce dossier est consacré aux témoignages sur les expériences de mort imminente, les visions, les apparitions et les possibles signes de l’au-delà.\n\nVous pouvez y inclure des récits personnels, des enquêtes, des avis d’experts et des cas qui défient l’explication conventionnelle."
+          },
+          paranormal: {
+            titulo: "Phénomènes paranormaux",
+            resumen: "Maisons hantées, présences et événements étranges.",
+            texto: "Cette section accueille des histoires de maisons hantées, d’objets qui bougent seuls, de psychophonies, d’apparitions, d’ombres et d’événements sans explication apparente.\n\nC’est un espace idéal pour rassembler des cas marquants et des témoignages troublants."
+          },
+          tierra: {
+            titulo: "Terre plate",
+            resumen: "Théories alternatives sur la véritable forme de notre monde.",
+            texto: "Cette section rassemble des théories, hypothèses et débats sur la possibilité que la Terre ait une forme différente de celle officiellement admise.\n\nVous pouvez y ajouter des arguments, des vidéos, des comparaisons, des cartes alternatives et des opinions sur cette théorie."
+          },
+          matrix: {
+            titulo: "La Matrix ou le jeu de la vie",
+            resumen: "Vivons-nous dans une simulation ? La vie est-elle un jeu ?",
+            texto: "Théories philosophiques, technologiques et existentielles sur la nature de la réalité.\n\nCe dossier peut rassembler des idées sur la simulation, l’intelligence artificielle, la conscience, le destin, le libre arbitre et la possibilité que notre existence fonctionne comme un grand jeu ou programme."
+          },
+          lectores: {
+            titulo: "Histoires de nos lecteurs",
+            resumen: "Récits, expériences et événements envoyés par la communauté.",
+            texto: "Un espace réservé aux visiteurs pour partager leurs expériences paranormales, observations, rêves prémonitoires ou tout événement étrange qu’ils ont vécu.\n\nVous pouvez publier ici de vrais témoignages envoyés par les lecteurs de EL UMBRAL."
+          }
+        },
+        premiumExpedientes: {
+          bases: {
+            titulo: "Bases cachées et zones restreintes",
+            texto: "Dossier premium sur les installations restreintes, les théories sur les bases souterraines et les enclaves liées à des opérations secrètes.\n\nVous pouvez y développer des théories, des cartes, des témoignages et des cas historiques de supposées zones interdites."
+          },
+          expedientesx: {
+            titulo: "Archives réservées et documents classifiés",
+            texto: "Compilation premium de documents, références, hypothèses et longues analyses sur des dossiers cachés.\n\nC’est un espace idéal pour publier du contenu plus dense, spécial et enrichi."
+          },
+          rituales: {
+            titulo: "Symbolisme caché, rituels et sociétés secrètes",
+            texto: "Analyse des symboles, courants ésotériques, ordres initiatiques et liens historiques entre pouvoir, croyances et rituels.\n\nCe contenu est pensé pour des articles spéciaux de grand intérêt."
+          },
+          cronicas: {
+            titulo: "Chroniques exclusives de l’au-delà",
+            texto: "Récits longs, analyses exclusives et compilations spéciales pour les abonnés.\n\nVous pouvez utiliser cet espace pour publier des séries premium, des enquêtes profondes et des témoignages réservés."
+          }
+        }
       },
-      paranormal: {
-        titulo: "Fenómenos paranormales",
-        resumen: "Casas encantadas, presencias y sucesos extraños.",
-        imagen: "https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1200&auto=format&fit=crop",
-        texto: "Aquí tienen cabida historias de casas encantadas, objetos que se mueven solos, psicofonías, apariciones, sombras y sucesos sin explicación aparente.\n\nEs un espacio ideal para reunir casos impactantes y testimonios escalofriantes."
+
+      de: {
+        ui: {
+          htmlLang: "de",
+          logoSub: "Geheimnis, Symbole und verborgene Realitäten",
+          navHome: "Start",
+          navOvni: "UFO",
+          navCivilizaciones: "Zivilisationen",
+          navMuerte: "Jenseits",
+          navParanormal: "Paranormal",
+          navTierra: "Flache Erde",
+          navMatrix: "Matrix",
+          navLectores: "Leser",
+          navPremium: "Premium",
+          navAdmin: "Admin",
+          heroBadge: "Forschungsportal und exklusive Inhalte",
+          heroTitle: "Willkommen bei EL UMBRAL",
+          heroText: "Erkunde die großen Rätsel der Welt: UFOs, außerirdische Rassen, verlorene Zivilisationen, Leben nach dem Tod, paranormale Phänomene, Theorien über die Realität und Berichte unserer Leser.",
+          mainSectionTitle: "Ausgewählte Dossiers",
+          btnBackHome: "Zurück zur Startseite",
+          btnGoPremium: "Zu Premium",
+          premiumTitle: "EL UMBRAL Premium-Bereich",
+          premiumText: "Erhalte Zugang zu exklusiven Dossiers, erweiterten Analysen, geheimen Unterlagen, besonderen Archiven, tiefgehenden Untersuchungen und Inhalten für Premium-Mitglieder.",
+          planMonthlyTitle: "Monatsplan",
+          planMonthlyList: [
+            "Zugang zu Premium-Dossiers",
+            "Lesen erweiterter Analysen",
+            "Exklusive Fälle jeden Monat",
+            "Privater Inhaltsbereich"
+          ],
+          planYearlyTitle: "Jahresplan",
+          planYearlyList: [
+            "Alles aus dem Monatsplan",
+            "Ersparnis gegenüber monatlicher Zahlung",
+            "Priorität bei künftigen Inhalten",
+            "Frühzugang zu Specials"
+          ],
+          premiumAccessTitle: "Premium-Zugang",
+          premiumUserLabel: "Benutzer",
+          premiumUserPlaceholder: "Gib deinen Premium-Benutzernamen ein",
+          premiumPassLabel: "Passwort",
+          premiumPassPlaceholder: "Gib dein Passwort ein",
+          btnEnterPremium: "Betreten",
+          btnSimulateSubscription: "Abo simulieren",
+          btnPremiumBack: "Zurück",
+          premiumLockedTitle: "Premium-Inhalt gesperrt",
+          premiumLockedText: "Dieser Bereich enthält spezielle Dossiers und exklusives Material für Mitglieder. Gib deine Daten ein oder klicke auf „Abo simulieren“, um zu sehen, wie der aktive Premium-Bereich aussehen würde.",
+          premiumFilesTitle: "Premium-Dossiers",
+          premiumTag: "Premium",
+          premiumCard1Title: "Verborgene Basen und Sperrgebiete",
+          premiumCard1Text: "Untersuchungen zu geheimen Enklaven, unterirdischen Anlagen und verbotenen Orten.",
+          premiumCard2Title: "Reservierte Archive und klassifizierte Dokumente",
+          premiumCard2Text: "Erweitertes Material, verbotene Theorien und exklusive Analysen des EL UMBRAL-Teams.",
+          premiumCard3Title: "Verborgene Symbolik, Rituale und Geheimgesellschaften",
+          premiumCard3Text: "Studie über Symbole, esoterische Strömungen und verborgene historische Verbindungen.",
+          premiumCard4Title: "Exklusive Chroniken aus dem Jenseits",
+          premiumCard4Text: "Lange Berichte, Analysen und besondere Sammlungen nur für Abonnenten.",
+          btnBackPremium: "Zurück zu Premium",
+          btnGoHome2: "Zur Startseite",
+          adminTitle: "Admin-Bereich",
+          adminText: "Hier kannst du Titel, Zusammenfassung, Bild und Text jedes Dossiers bearbeiten.",
+          adminSelectLabel: "Dossier auswählen",
+          adminTitleLabel: "Titel",
+          adminSummaryLabel: "Kurze Zusammenfassung",
+          adminImageLabel: "Bild-URL",
+          adminTextLabel: "Vollständiger Text",
+          btnSaveChanges: "Änderungen speichern",
+          footerText: "© 2026 EL UMBRAL",
+          alerts: {
+            premiumOk: "Premium-Zugang erfolgreich aktiviert.",
+            premiumNeedData: "Gib Benutzername und Passwort ein, um fortzufahren.",
+            premiumSimulated: "Simuliertes Premium-Abo aktiviert.",
+            premiumRequired: "Du musst den Premium-Zugang aktivieren, um diesen Inhalt zu öffnen.",
+            saved: "Änderungen wurden in dieser Sitzung übernommen."
+          }
+        },
+        expedientes: {
+          ovni: {
+            titulo: "UFO-Phänomen / Außerirdische Rassen",
+            resumen: "Sichtungen, Kontakte und Theorien über außerirdische Zivilisationen.",
+            texto: "Das UFO-Phänomen vereint Sichtungen, Dokumente, Theorien und Berichte über unbekannte Flugobjekte und mögliche außerirdische Zivilisationen.\n\nIn diesem Bereich kannst du Informationen über außerirdische Rassen, nahe Begegnungen, freigegebene Berichte, Kontakttheorien und historische Fälle aus aller Welt hinzufügen."
+          },
+          civilizaciones: {
+            titulo: "Verlorene Zivilisationen",
+            resumen: "Archäologische Rätsel, unmögliche Bauwerke und Geheimnisse der Antike.",
+            texto: "Verlorene Zivilisationen werfen Fragen über verschwundene Städte, vergessenes Wissen und hochentwickelte Kulturen der Antike auf.\n\nHier kannst du Inhalte über Atlantis, Lemurien, Ägypten, Göbekli Tepe, unmögliche Monumente und andere große historische Rätsel hinzufügen."
+          },
+          muerte: {
+            titulo: "Jenseits des Todes",
+            resumen: "Nahtoderfahrungen, Erscheinungen und unerklärliche Fälle.",
+            texto: "Dieses Dossier ist Berichten über Nahtoderfahrungen, Visionen, Erscheinungen und mögliche Zeichen aus dem Jenseits gewidmet.\n\nDu kannst hier persönliche Berichte, Untersuchungen, Expertenmeinungen und Fälle aufnehmen, die der herkömmlichen Erklärung widersprechen."
+          },
+          paranormal: {
+            titulo: "Paranormale Phänomene",
+            resumen: "Spukhäuser, Präsenzen und seltsame Ereignisse.",
+            texto: "Hier finden sich Geschichten über Spukhäuser, sich bewegende Gegenstände, Tonaufnahmen, Erscheinungen, Schatten und Ereignisse ohne erkennbare Erklärung.\n\nEin idealer Bereich, um erschütternde Fälle und unheimliche Zeugnisse zu sammeln."
+          },
+          tierra: {
+            titulo: "Flache Erde",
+            resumen: "Alternative Theorien über die wahre Form unserer Welt.",
+            texto: "Dieser Bereich sammelt Theorien, Hypothesen und Debatten über die Möglichkeit, dass die Erde eine andere Form hat als offiziell anerkannt.\n\nHier kannst du Argumente, Videos, Vergleiche, alternative Karten und Meinungen zu dieser Theorie hinzufügen."
+          },
+          matrix: {
+            titulo: "Die Matrix oder das Spiel des Lebens",
+            resumen: "Leben wir in einer Simulation? Ist das Leben ein Spiel?",
+            texto: "Philosophische, technologische und existenzielle Theorien über die Natur der Realität.\n\nDieses Dossier kann Ideen über Simulation, künstliche Intelligenz, Bewusstsein, Schicksal, freien Willen und die Möglichkeit sammeln, dass unsere Existenz wie ein großes Spiel oder Programm funktioniert."
+          },
+          lectores: {
+            titulo: "Geschichten unserer Leser",
+            resumen: "Berichte, Erfahrungen und Ereignisse aus der Community.",
+            texto: "Ein Bereich für Besucher, um ihre paranormalen Erfahrungen, Sichtungen, prophetischen Träume oder andere seltsame Ereignisse zu teilen.\n\nHier kannst du echte Zeugnisse veröffentlichen, die von EL UMBRAL-Lesern eingesandt wurden."
+          }
+        },
+        premiumExpedientes: {
+          bases: {
+            titulo: "Verborgene Basen und Sperrgebiete",
+            texto: "Premium-Dossier über eingeschränkte Anlagen, Theorien zu unterirdischen Basen und Enklaven, die mit geheimen Operationen verbunden sind.\n\nHier kannst du Theorien, Karten, Zeugnisse und historische Fälle über angeblich verbotene Zonen entwickeln."
+          },
+          expedientesx: {
+            titulo: "Reservierte Archive und klassifizierte Dokumente",
+            texto: "Premium-Sammlung von Dokumenten, Referenzen, Hypothesen und langen Analysen über verborgene Akten.\n\nDies ist ein perfekter Bereich, um dichteres Material, Sonderinhalte und erweiterte Archive zu veröffentlichen."
+          },
+          rituales: {
+            titulo: "Verborgene Symbolik, Rituale und Geheimgesellschaften",
+            texto: "Analyse von Symbolen, esoterischen Strömungen, initiatischen Orden und historischen Verbindungen zwischen Macht, Glauben und Ritualen.\n\nDieser Inhalt ist für besondere Artikel von hohem Interesse gedacht."
+          },
+          cronicas: {
+            titulo: "Exklusive Chroniken aus dem Jenseits",
+            texto: "Lange Geschichten, exklusive Analysen und besondere Sammlungen für Abonnenten.\n\nDu kannst diesen Bereich nutzen, um Premium-Serien, tiefgehende Untersuchungen und reservierte Zeugnisse zu veröffentlichen."
+          }
+        }
       },
-      tierra: {
-        titulo: "Tierra plana",
-        resumen: "Teorías alternativas sobre la forma real de nuestro mundo.",
-        imagen: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1200&auto=format&fit=crop",
-        texto: "Este apartado recoge teorías, hipótesis y debates sobre la posibilidad de que la Tierra tenga una forma distinta a la aceptada oficialmente.\n\nAquí puedes añadir argumentos, vídeos, comparativas, mapas alternativos y opiniones sobre esta teoría."
+
+      it: {
+        ui: {
+          htmlLang: "it",
+          logoSub: "Mistero, simboli e realtà nascoste",
+          navHome: "Home",
+          navOvni: "UFO",
+          navCivilizaciones: "Civiltà",
+          navMuerte: "Oltre",
+          navParanormal: "Paranormale",
+          navTierra: "Terra piatta",
+          navMatrix: "Matrix",
+          navLectores: "Lettori",
+          navPremium: "Premium",
+          navAdmin: "Admin",
+          heroBadge: "Portale di ricerca e contenuti esclusivi",
+          heroTitle: "Benvenuto su EL UMBRAL",
+          heroText: "Esplora i grandi enigmi del mondo: UFO, razze aliene, civiltà perdute, vita dopo la morte, fenomeni paranormali, teorie sulla realtà e testimonianze inviate dai nostri lettori.",
+          mainSectionTitle: "Dossier in evidenza",
+          btnBackHome: "Torna alla home",
+          btnGoPremium: "Vai a Premium",
+          premiumTitle: "Area Premium di EL UMBRAL",
+          premiumText: "Accedi a dossier esclusivi, analisi estese, documenti segreti, archivi speciali, indagini approfondite e contenuti riservati ai membri premium.",
+          planMonthlyTitle: "Piano mensile",
+          planMonthlyList: [
+            "Accesso ai dossier premium",
+            "Lettura di analisi estese",
+            "Casi esclusivi ogni mese",
+            "Area contenuti privata"
+          ],
+          planYearlyTitle: "Piano annuale",
+          planYearlyList: [
+            "Tutto ciò che include il piano mensile",
+            "Risparmio rispetto al pagamento mensile",
+            "Priorità nei contenuti futuri",
+            "Accesso anticipato agli speciali"
+          ],
+          premiumAccessTitle: "Accesso Premium",
+          premiumUserLabel: "Utente",
+          premiumUserPlaceholder: "Inserisci il tuo utente premium",
+          premiumPassLabel: "Password",
+          premiumPassPlaceholder: "Inserisci la tua password",
+          btnEnterPremium: "Entra",
+          btnSimulateSubscription: "Simula abbonamento",
+          btnPremiumBack: "Indietro",
+          premiumLockedTitle: "Contenuto premium bloccato",
+          premiumLockedText: "Quest’area contiene dossier speciali e materiale esclusivo per i membri. Inserisci i tuoi dati o clicca su “Simula abbonamento” per vedere come apparirebbe l’area premium attiva.",
+          premiumFilesTitle: "Dossier Premium",
+          premiumTag: "Premium",
+          premiumCard1Title: "Basi nascoste e zone riservate",
+          premiumCard1Text: "Indagini su enclave segrete, strutture sotterranee e luoghi proibiti.",
+          premiumCard2Title: "Archivi riservati e documenti classificati",
+          premiumCard2Text: "Materiale ampliato, teorie proibite e analisi esclusive del team di EL UMBRAL.",
+          premiumCard3Title: "Simbologia nascosta, rituali e società segrete",
+          premiumCard3Text: "Studio di simboli, correnti esoteriche e connessioni storiche nascoste.",
+          premiumCard4Title: "Cronache esclusive dall’aldilà",
+          premiumCard4Text: "Racconti lunghi, analisi e raccolte speciali solo per abbonati.",
+          btnBackPremium: "Torna a Premium",
+          btnGoHome2: "Vai alla home",
+          adminTitle: "Pannello amministratore",
+          adminText: "Qui puoi modificare il titolo, il riassunto, l’immagine e il testo di ogni dossier.",
+          adminSelectLabel: "Seleziona dossier",
+          adminTitleLabel: "Titolo",
+          adminSummaryLabel: "Riassunto breve",
+          adminImageLabel: "URL immagine",
+          adminTextLabel: "Testo completo",
+          btnSaveChanges: "Salva modifiche",
+          footerText: "© 2026 EL UMBRAL",
+          alerts: {
+            premiumOk: "Accesso premium attivato correttamente.",
+            premiumNeedData: "Inserisci utente e password per accedere.",
+            premiumSimulated: "Abbonamento premium simulato attivato.",
+            premiumRequired: "Devi attivare l’accesso premium per entrare in questo contenuto.",
+            saved: "Modifiche applicate correttamente in questa sessione."
+          }
+        },
+        expedientes: {
+          ovni: {
+            titulo: "Fenomeno UFO / Razze aliene",
+            resumen: "Avvistamenti, contatti e teorie sulle civiltà extraterrestri.",
+            texto: "Il fenomeno UFO raccoglie avvistamenti, documenti, teorie e testimonianze legate a oggetti volanti non identificati e possibili civiltà extraterrestri.\n\nIn questa sezione puoi includere informazioni su razze aliene, incontri ravvicinati, rapporti desecretati, teorie di contatto e casi storici da tutto il mondo."
+          },
+          civilizaciones: {
+            titulo: "Civiltà perdute",
+            resumen: "Enigmi archeologici, costruzioni impossibili e segreti dell’antichità.",
+            texto: "Le civiltà perdute sollevano domande su città scomparse, conoscenze dimenticate e culture avanzate dell’antichità.\n\nQui puoi aggiungere contenuti su Atlantide, Lemuria, Egitto, Göbekli Tepe, monumenti impossibili e altri grandi misteri storici."
+          },
+          muerte: {
+            titulo: "Oltre la morte",
+            resumen: "Esperienze di premorte, apparizioni e casi inspiegabili.",
+            texto: "Questo dossier è dedicato alle testimonianze su esperienze di premorte, visioni, apparizioni e possibili segni dall’aldilà.\n\nPuoi includere racconti personali, indagini, opinioni di esperti e casi che sfidano la spiegazione convenzionale."
+          },
+          paranormal: {
+            titulo: "Fenomeni paranormali",
+            resumen: "Case infestate, presenze ed eventi strani.",
+            texto: "Questa sezione include storie di case infestate, oggetti che si muovono da soli, registrazioni misteriose, apparizioni, ombre ed eventi senza apparente spiegazione.\n\nÈ uno spazio ideale per raccogliere casi impressionanti e testimonianze inquietanti."
+          },
+          tierra: {
+            titulo: "Terra piatta",
+            resumen: "Teorie alternative sulla vera forma del nostro mondo.",
+            texto: "Questa sezione raccoglie teorie, ipotesi e dibattiti sulla possibilità che la Terra abbia una forma diversa da quella ufficialmente accettata.\n\nQui puoi aggiungere argomenti, video, confronti, mappe alternative e opinioni su questa teoria."
+          },
+          matrix: {
+            titulo: "La Matrix o il gioco della vita",
+            resumen: "Viviamo in una simulazione? La vita è un gioco?",
+            texto: "Teorie filosofiche, tecnologiche ed esistenziali sulla natura della realtà.\n\nQuesto dossier può raccogliere idee su simulazione, intelligenza artificiale, coscienza, destino, libero arbitrio e la possibilità che la nostra esistenza funzioni come un grande gioco o programma."
+          },
+          lectores: {
+            titulo: "Storie dei nostri lettori",
+            resumen: "Racconti, esperienze ed eventi inviati dalla comunità.",
+            texto: "Uno spazio riservato ai visitatori per condividere esperienze paranormali, avvistamenti, sogni premonitori o qualsiasi evento strano vissuto.\n\nQui puoi pubblicare testimonianze reali inviate dai lettori di EL UMBRAL."
+          }
+        },
+        premiumExpedientes: {
+          bases: {
+            titulo: "Basi nascoste e zone riservate",
+            texto: "Dossier premium su installazioni riservate, teorie sulle basi sotterranee ed enclave collegate a operazioni segrete.\n\nQui puoi sviluppare teorie, mappe, testimonianze e casi storici di presunte aree proibite."
+          },
+          expedientesx: {
+            titulo: "Archivi riservati e documenti classificati",
+            texto: "Raccolta premium di documenti, riferimenti, ipotesi e analisi approfondite su dossier nascosti.\n\nÈ un’area perfetta per pubblicare materiale più denso, contenuti speciali e archivi ampliati."
+          },
+          rituales: {
+            titulo: "Simbologia nascosta, rituali e società segrete",
+            texto: "Analisi di simboli, correnti esoteriche, ordini iniziatici e legami storici tra potere, credenze e rituali.\n\nQuesto contenuto è pensato per articoli speciali di grande interesse."
+          },
+          cronicas: {
+            titulo: "Cronache esclusive dall’aldilà",
+            texto: "Racconti lunghi, analisi esclusive e raccolte speciali per abbonati.\n\nPuoi usare quest’area per pubblicare serie premium, indagini profonde e testimonianze riservate."
+          }
+        }
       },
-      matrix: {
-        titulo: "La Matrix o el juego de la vida",
-        resumen: "¿Vivimos en una simulación? ¿Es la vida un juego?",
-        imagen: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop",
-        texto: "Teorías filosóficas, tecnológicas y existenciales sobre la naturaleza de la realidad.\n\nEste expediente puede reunir ideas sobre simulación, inteligencia artificial, conciencia, destino, libre albedrío y la posibilidad de que nuestra existencia funcione como un gran juego o programa."
-      },
-      lectores: {
-        titulo: "Historias de nuestros lectores",
-        resumen: "Relatos, vivencias y sucesos enviados por la comunidad.",
-        imagen: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop",
-        texto: "Espacio reservado para que los visitantes compartan sus experiencias paranormales, avistamientos, sueños premonitorios o cualquier suceso extraño que hayan vivido.\n\nAquí puedes publicar testimonios reales enviados por los lectores de EL UMBRAL."
+
+      pt: {
+        ui: {
+          htmlLang: "pt",
+          logoSub: "Mistério, símbolos e realidades ocultas",
+          navHome: "Início",
+          navOvni: "OVNI",
+          navCivilizaciones: "Civilizações",
+          navMuerte: "Além",
+          navParanormal: "Paranormal",
+          navTierra: "Terra plana",
+          navMatrix: "Matrix",
+          navLectores: "Leitores",
+          navPremium: "Premium",
+          navAdmin: "Admin",
+          heroBadge: "Portal de investigação e conteúdo exclusivo",
+          heroTitle: "Bem-vindo ao EL UMBRAL",
+          heroText: "Explora os grandes enigmas do mundo: OVNIs, raças alienígenas, civilizações perdidas, vida após a morte, fenómenos paranormais, teorias sobre a realidade e testemunhos enviados pelos nossos leitores.",
+          mainSectionTitle: "Dossiês em destaque",
+          btnBackHome: "Voltar ao início",
+          btnGoPremium: "Ir para Premium",
+          premiumTitle: "Zona Premium de EL UMBRAL",
+          premiumText: "Acede a dossiês exclusivos, análises ampliadas, dossiers secretos, arquivos especiais, investigações profundas e conteúdo reservado para membros premium.",
+          planMonthlyTitle: "Plano mensal",
+          planMonthlyList: [
+            "Acesso a dossiês premium",
+            "Leitura de análises ampliadas",
+            "Casos exclusivos todos os meses",
+            "Zona privada de conteúdos"
+          ],
+          planYearlyTitle: "Plano anual",
+          planYearlyList: [
+            "Tudo o que inclui o plano mensal",
+            "Poupança face ao pagamento mensal",
+            "Prioridade em conteúdos futuros",
+            "Acesso antecipado a especiais"
+          ],
+          premiumAccessTitle: "Acesso Premium",
+          premiumUserLabel: "Utilizador",
+          premiumUserPlaceholder: "Escreve o teu utilizador premium",
+          premiumPassLabel: "Palavra-passe",
+          premiumPassPlaceholder: "Escreve a tua palavra-passe",
+          btnEnterPremium: "Entrar",
+          btnSimulateSubscription: "Simular subscrição",
+          btnPremiumBack: "Voltar",
+          premiumLockedTitle: "Conteúdo premium bloqueado",
+          premiumLockedText: "Esta zona contém dossiês especiais e material exclusivo para membros. Introduz os teus dados ou carrega em “Simular subscrição” para ver como ficaria a zona premium ativa.",
+          premiumFilesTitle: "Dossiês Premium",
+          premiumTag: "Premium",
+          premiumCard1Title: "Bases ocultas e zonas restritas",
+          premiumCard1Text: "Investigações sobre enclaves secretos, instalações subterrâneas e lugares proibidos.",
+          premiumCard2Title: "Arquivos reservados e documentos classificados",
+          premiumCard2Text: "Material ampliado, teorias proibidas e análises exclusivas da equipa EL UMBRAL.",
+          premiumCard3Title: "Simbologia oculta, rituais e sociedades secretas",
+          premiumCard3Text: "Estudo de símbolos, correntes esotéricas e ligações históricas ocultas.",
+          premiumCard4Title: "Crónicas exclusivas do além",
+          premiumCard4Text: "Relatos longos, análises e compilações especiais apenas para subscritores.",
+          btnBackPremium: "Voltar a Premium",
+          btnGoHome2: "Ir para o início",
+          adminTitle: "Painel de administrador",
+          adminText: "Aqui podes editar o título, resumo, imagem e texto de cada dossiê.",
+          adminSelectLabel: "Seleciona dossiê",
+          adminTitleLabel: "Título",
+          adminSummaryLabel: "Resumo curto",
+          adminImageLabel: "URL da imagem",
+          adminTextLabel: "Texto completo",
+          btnSaveChanges: "Guardar alterações",
+          footerText: "© 2026 EL UMBRAL",
+          alerts: {
+            premiumOk: "Acesso premium ativado com sucesso.",
+            premiumNeedData: "Introduz utilizador e palavra-passe para aceder.",
+            premiumSimulated: "Subscrição premium simulada ativada.",
+            premiumRequired: "Tens de ativar o acesso premium para entrar neste conteúdo.",
+            saved: "Alterações aplicadas corretamente nesta sessão."
+          }
+        },
+        expedientes: {
+          ovni: {
+            titulo: "Fenômeno OVNI / Raças alienígenas",
+            resumen: "Avistamentos, contactos e teorias sobre civilizações extraterrestres.",
+            texto: "O fenómeno OVNI reúne avistamentos, documentos, teorias e testemunhos relacionados com objetos voadores não identificados e possíveis civilizações extraterrestres.\n\nNesta secção podes incluir informações sobre raças alienígenas, encontros imediatos, relatórios desclassificados, teorias de contacto e casos históricos de todo o mundo."
+          },
+          civilizaciones: {
+            titulo: "Civilizações perdidas",
+            resumen: "Enigmas arqueológicos, construções impossíveis e segredos da antiguidade.",
+            texto: "As civilizações perdidas levantam perguntas sobre cidades desaparecidas, conhecimentos esquecidos e culturas avançadas da antiguidade.\n\nAqui podes adicionar conteúdos sobre Atlântida, Lemúria, Egito, Göbekli Tepe, monumentos impossíveis e outros grandes mistérios históricos."
+          },
+          muerte: {
+            titulo: "Além da morte",
+            resumen: "Experiências de quase morte, aparições e casos inexplicáveis.",
+            texto: "Este dossiê é dedicado a testemunhos sobre experiências de quase morte, visões, aparições e possíveis sinais do além.\n\nPodes incluir aqui relatos pessoais, investigações, opiniões de especialistas e casos que desafiam a explicação convencional."
+          },
+          paranormal: {
+            titulo: "Fenómenos paranormais",
+            resumen: "Casas assombradas, presenças e acontecimentos estranhos.",
+            texto: "Esta secção inclui histórias de casas assombradas, objetos que se movem sozinhos, gravações estranhas, aparições, sombras e acontecimentos sem explicação aparente.\n\nÉ um espaço ideal para reunir casos marcantes e testemunhos inquietantes."
+          },
+          tierra: {
+            titulo: "Terra plana",
+            resumen: "Teorias alternativas sobre a verdadeira forma do nosso mundo.",
+            texto: "Esta secção reúne teorias, hipóteses e debates sobre a possibilidade de a Terra ter uma forma diferente da oficialmente aceite.\n\nAqui podes adicionar argumentos, vídeos, comparações, mapas alternativos e opiniões sobre esta teoria."
+          },
+          matrix: {
+            titulo: "A Matrix ou o jogo da vida",
+            resumen: "Vivemos numa simulação? A vida é um jogo?",
+            texto: "Teorias filosóficas, tecnológicas e existenciais sobre a natureza da realidade.\n\nEste dossiê pode reunir ideias sobre simulação, inteligência artificial, consciência, destino, livre-arbítrio e a possibilidade de a nossa existência funcionar como um grande jogo ou programa."
+          },
+          lectores: {
+            titulo: "Histórias dos nossos leitores",
+            resumen: "Relatos, experiências e acontecimentos enviados pela comunidade.",
+            texto: "Um espaço reservado para os visitantes partilharem as suas experiências paranormais, avistamentos, sonhos premonitórios ou qualquer acontecimento estranho que tenham vivido.\n\nAqui podes publicar testemunhos reais enviados pelos leitores de EL UMBRAL."
+          }
+        },
+        premiumExpedientes: {
+          bases: {
+            titulo: "Bases ocultas e zonas restritas",
+            texto: "Dossiê premium sobre instalações restritas, teorias sobre bases subterrâneas e enclaves ligados a operações secretas.\n\nAqui podes desenvolver teorias, mapas, testemunhos e casos históricos de supostas áreas proibidas."
+          },
+          expedientesx: {
+            titulo: "Arquivos reservados e documentos classificados",
+            texto: "Compilação premium de documentos, referências, hipóteses e análises longas sobre dossiês ocultos.\n\nÉ uma zona perfeita para publicar material mais denso, conteúdo especial e arquivos ampliados."
+          },
+          rituales: {
+            titulo: "Simbologia oculta, rituais e sociedades secretas",
+            texto: "Análise de símbolos, correntes esotéricas, ordens iniciáticas e ligações históricas entre poder, crenças e rituais.\n\nEste conteúdo foi pensado para artigos especiais de grande interesse."
+          },
+          cronicas: {
+            titulo: "Crónicas exclusivas do além",
+            texto: "Relatos longos, análises exclusivas e compilações especiais para subscritores.\n\nPodes usar esta área para publicar séries premium, investigações profundas e testemunhos reservados."
+          }
+        }
       }
     };
 
-    const premiumExpedientes = {
-      bases: {
-        titulo: "Bases ocultas y zonas restringidas",
-        imagen: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1200&auto=format&fit=crop",
-        texto: "Dossier premium sobre instalaciones restringidas, teorías sobre bases subterráneas y enclaves vinculados a operaciones secretas.\n\nAquí puedes desarrollar teorías, mapas, testimonios y casos históricos de supuestas áreas vetadas."
-      },
-      expedientesx: {
-        titulo: "Archivos reservados y documentos clasificados",
-        imagen: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
-        texto: "Recopilación premium de documentos, referencias, hipótesis y análisis largos sobre expedientes ocultos.\n\nEs una zona perfecta para publicar material más denso, contenido especial y archivos ampliados."
-      },
-      rituales: {
-        titulo: "Simbología oculta, rituales y sociedades secretas",
-        imagen: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop",
-        texto: "Análisis de símbolos, corrientes esotéricas, órdenes iniciáticas y vínculos históricos entre poder, creencias y rituales.\n\nEste contenido está pensado para artículos especiales de alto interés."
-      },
-      cronicas: {
-        titulo: "Crónicas exclusivas del más allá",
-        imagen: "https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=1200&auto=format&fit=crop",
-        texto: "Relatos largos, análisis exclusivos y recopilaciones especiales para suscriptores.\n\nPuedes usar esta parte para publicar series premium, investigaciones profundas y testimonios reservados."
-      }
+    const premiumImages = {
+      bases: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1200&auto=format&fit=crop",
+      expedientesx: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
+      rituales: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop",
+      cronicas: "https://images.unsplash.com/photo-1500534623283-312aade485b7?q=80&w=1200&auto=format&fit=crop"
     };
 
+    let currentLang = "es";
     let premiumAccess = false;
+    let expedientes = JSON.parse(JSON.stringify(contentByLang.es.expedientes));
+
+    function getUI() {
+      return contentByLang[currentLang].ui;
+    }
+
+    function getExpedientes() {
+      return JSON.parse(JSON.stringify(contentByLang[currentLang].expedientes));
+    }
+
+    function getPremiumExpedientes() {
+      return contentByLang[currentLang].premiumExpedientes;
+    }
 
     function hideAllPanels() {
       document.getElementById("expedienteBox").classList.remove("active");
-      document.getElementById("adminPanel").classList.remove("active");
       document.getElementById("premiumSection").classList.remove("active");
       document.getElementById("premiumExpedienteBox").classList.remove("active");
+      document.getElementById("adminPanel").classList.remove("active");
     }
 
     function renderCards() {
-      for (const key in expedientes) {
-        const titulo = document.getElementById("titulo-" + key);
-        const resumen = document.getElementById("resumen-" + key);
-        const imagen = document.getElementById("img-" + key);
+      Object.keys(expedientes).forEach(key => {
+        document.getElementById("titulo-" + key).textContent = expedientes[key].titulo;
+        document.getElementById("resumen-" + key).textContent = expedientes[key].resumen;
+        document.getElementById("img-" + key).src = images[key];
+        document.getElementById("img-" + key).alt = expedientes[key].titulo;
+      });
+    }
 
-        if (titulo) titulo.textContent = expedientes[key].titulo;
-        if (resumen) resumen.textContent = expedientes[key].resumen;
-        if (imagen) {
-          imagen.src = expedientes[key].imagen;
-          imagen.alt = expedientes[key].titulo;
-        }
+    function renderUI() {
+      const ui = getUI();
+      document.documentElement.lang = ui.htmlLang;
+
+      document.getElementById("logoSub").textContent = ui.logoSub;
+      document.getElementById("navHome").textContent = ui.navHome;
+      document.getElementById("navOvni").textContent = ui.navOvni;
+      document.getElementById("navCivilizaciones").textContent = ui.navCivilizaciones;
+      document.getElementById("navMuerte").textContent = ui.navMuerte;
+      document.getElementById("navParanormal").textContent = ui.navParanormal;
+      document.getElementById("navTierra").textContent = ui.navTierra;
+      document.getElementById("navMatrix").textContent = ui.navMatrix;
+      document.getElementById("navLectores").textContent = ui.navLectores;
+      document.getElementById("navPremium").textContent = ui.navPremium;
+      document.getElementById("navAdmin").textContent = ui.navAdmin;
+
+      document.getElementById("heroBadge").textContent = ui.heroBadge;
+      document.getElementById("heroTitle").textContent = ui.heroTitle;
+      document.getElementById("heroText").textContent = ui.heroText;
+      document.getElementById("mainSectionTitle").textContent = ui.mainSectionTitle;
+
+      document.getElementById("btnBackHome").textContent = ui.btnBackHome;
+      document.getElementById("btnGoPremium").textContent = ui.btnGoPremium;
+
+      document.getElementById("premiumTitle").textContent = ui.premiumTitle;
+      document.getElementById("premiumText").textContent = ui.premiumText;
+      document.getElementById("planMonthlyTitle").textContent = ui.planMonthlyTitle;
+      document.getElementById("planYearlyTitle").textContent = ui.planYearlyTitle;
+      document.getElementById("planMonthlyList").innerHTML = ui.planMonthlyList.map(x => `<li>${x}</li>`).join("");
+      document.getElementById("planYearlyList").innerHTML = ui.planYearlyList.map(x => `<li>${x}</li>`).join("");
+
+      document.getElementById("premiumAccessTitle").textContent = ui.premiumAccessTitle;
+      document.getElementById("premiumUserLabel").textContent = ui.premiumUserLabel;
+      document.getElementById("premiumUser").placeholder = ui.premiumUserPlaceholder;
+      document.getElementById("premiumPassLabel").textContent = ui.premiumPassLabel;
+      document.getElementById("premiumPass").placeholder = ui.premiumPassPlaceholder;
+      document.getElementById("btnEnterPremium").textContent = ui.btnEnterPremium;
+      document.getElementById("btnSimulateSubscription").textContent = ui.btnSimulateSubscription;
+      document.getElementById("btnPremiumBack").textContent = ui.btnPremiumBack;
+
+      document.getElementById("premiumLockedTitle").textContent = ui.premiumLockedTitle;
+      document.getElementById("premiumLockedText").textContent = ui.premiumLockedText;
+      document.getElementById("premiumFilesTitle").textContent = ui.premiumFilesTitle;
+
+      document.getElementById("premiumTag1").textContent = ui.premiumTag;
+      document.getElementById("premiumTag2").textContent = ui.premiumTag;
+      document.getElementById("premiumTag3").textContent = ui.premiumTag;
+      document.getElementById("premiumTag4").textContent = ui.premiumTag;
+
+      document.getElementById("premiumCard1Title").textContent = ui.premiumCard1Title;
+      document.getElementById("premiumCard1Text").textContent = ui.premiumCard1Text;
+      document.getElementById("premiumCard2Title").textContent = ui.premiumCard2Title;
+      document.getElementById("premiumCard2Text").textContent = ui.premiumCard2Text;
+      document.getElementById("premiumCard3Title").textContent = ui.premiumCard3Title;
+      document.getElementById("premiumCard3Text").textContent = ui.premiumCard3Text;
+      document.getElementById("premiumCard4Title").textContent = ui.premiumCard4Title;
+      document.getElementById("premiumCard4Text").textContent = ui.premiumCard4Text;
+
+      document.getElementById("btnBackPremium").textContent = ui.btnBackPremium;
+      document.getElementById("btnGoHome2").textContent = ui.btnGoHome2;
+
+      document.getElementById("adminTitle").textContent = ui.adminTitle;
+      document.getElementById("adminText").textContent = ui.adminText;
+      document.getElementById("adminSelectLabel").textContent = ui.adminSelectLabel;
+      document.getElementById("adminTitleLabel").textContent = ui.adminTitleLabel;
+      document.getElementById("adminSummaryLabel").textContent = ui.adminSummaryLabel;
+      document.getElementById("adminImageLabel").textContent = ui.adminImageLabel;
+      document.getElementById("adminTextLabel").textContent = ui.adminTextLabel;
+      document.getElementById("btnSaveChanges").textContent = ui.btnSaveChanges;
+
+      document.getElementById("footerText").textContent = ui.footerText;
+    }
+
+    function updateAdminSelect() {
+      const select = document.getElementById("expedienteSelect");
+      const current = select.value || "ovni";
+
+      select.innerHTML = `
+        <option value="ovni">${expedientes.ovni.titulo}</option>
+        <option value="civilizaciones">${expedientes.civilizaciones.titulo}</option>
+        <option value="muerte">${expedientes.muerte.titulo}</option>
+        <option value="paranormal">${expedientes.paranormal.titulo}</option>
+        <option value="tierra">${expedientes.tierra.titulo}</option>
+        <option value="matrix">${expedientes.matrix.titulo}</option>
+        <option value="lectores">${expedientes.lectores.titulo}</option>
+      `;
+      select.value = current;
+    }
+
+    function applyLanguage() {
+      expedientes = getExpedientes();
+      renderUI();
+      renderCards();
+      updateAdminSelect();
+
+      if (document.getElementById("adminPanel").classList.contains("active")) {
+        loadAdminData();
       }
+    }
+
+    function changeLanguage(lang) {
+      if (!contentByLang[lang]) return;
+      currentLang = lang;
+      applyLanguage();
     }
 
     function openExpediente(tipo) {
@@ -833,7 +1683,7 @@
 
       document.getElementById("expedienteTitulo").textContent = expedientes[tipo].titulo;
       document.getElementById("expedienteTexto").textContent = expedientes[tipo].texto;
-      document.getElementById("expedienteImagen").src = expedientes[tipo].imagen;
+      document.getElementById("expedienteImagen").src = images[tipo];
       document.getElementById("expedienteImagen").alt = expedientes[tipo].titulo;
 
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -864,34 +1714,35 @@
       const user = document.getElementById("premiumUser").value.trim();
       const pass = document.getElementById("premiumPass").value.trim();
 
-      if (user !== "" && pass !== "") {
+      if (user && pass) {
         premiumAccess = true;
         updatePremiumView();
-        alert("Acceso premium activado correctamente.");
+        alert(getUI().alerts.premiumOk);
       } else {
-        alert("Introduce usuario y contraseña para acceder.");
+        alert(getUI().alerts.premiumNeedData);
       }
     }
 
     function simulateSubscription() {
       premiumAccess = true;
       updatePremiumView();
-      alert("Suscripción premium simulada activada.");
+      alert(getUI().alerts.premiumSimulated);
     }
 
     function openPremiumExpediente(tipo) {
       if (!premiumAccess) {
-        alert("Debes activar el acceso premium para entrar en este contenido.");
+        alert(getUI().alerts.premiumRequired);
         return;
       }
 
+      const premiumData = getPremiumExpedientes();
+
       hideAllPanels();
       document.getElementById("premiumExpedienteBox").classList.add("active");
-
-      document.getElementById("premiumExpedienteTitulo").textContent = premiumExpedientes[tipo].titulo;
-      document.getElementById("premiumExpedienteTexto").textContent = premiumExpedientes[tipo].texto;
-      document.getElementById("premiumExpedienteImagen").src = premiumExpedientes[tipo].imagen;
-      document.getElementById("premiumExpedienteImagen").alt = premiumExpedientes[tipo].titulo;
+      document.getElementById("premiumExpedienteTitulo").textContent = premiumData[tipo].titulo;
+      document.getElementById("premiumExpedienteTexto").textContent = premiumData[tipo].texto;
+      document.getElementById("premiumExpedienteImagen").src = premiumImages[tipo];
+      document.getElementById("premiumExpedienteImagen").alt = premiumData[tipo].titulo;
 
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -909,7 +1760,7 @@
       const tipo = document.getElementById("expedienteSelect").value;
       document.getElementById("adminTitulo").value = expedientes[tipo].titulo;
       document.getElementById("adminResumen").value = expedientes[tipo].resumen;
-      document.getElementById("adminImagen").value = expedientes[tipo].imagen;
+      document.getElementById("adminImagen").value = images[tipo];
       document.getElementById("adminTexto").value = expedientes[tipo].texto;
     }
 
@@ -918,14 +1769,16 @@
 
       expedientes[tipo].titulo = document.getElementById("adminTitulo").value;
       expedientes[tipo].resumen = document.getElementById("adminResumen").value;
-      expedientes[tipo].imagen = document.getElementById("adminImagen").value;
       expedientes[tipo].texto = document.getElementById("adminTexto").value;
+      images[tipo] = document.getElementById("adminImagen").value;
 
       renderCards();
-      alert("Cambios aplicados correctamente en esta sesión.");
+      updateAdminSelect();
+      alert(getUI().alerts.saved);
     }
 
-    renderCards();
+    document.getElementById("languageSelect").value = "es";
+    applyLanguage();
   </script>
 </body>
 </html>
