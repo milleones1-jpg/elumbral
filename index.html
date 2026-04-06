@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EL UMBRAL</title>
-
   <style>
     * {
       box-sizing: border-box;
@@ -21,7 +20,7 @@
 
     .overlay {
       min-height: 100vh;
-      background: rgba(0, 0, 0, 0.68);
+      background: rgba(0, 0, 0, 0.72);
     }
 
     .container {
@@ -48,19 +47,28 @@
 
     .menu {
       display: flex;
-      gap: 20px;
+      gap: 14px;
       flex-wrap: wrap;
+      align-items: center;
     }
 
-    .menu a {
+    .menu a,
+    .menu button {
       color: white;
       text-decoration: none;
       font-size: 1rem;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 10px 14px;
+      border-radius: 8px;
+      cursor: pointer;
       transition: 0.3s;
     }
 
-    .menu a:hover {
-      color: #d4af37;
+    .menu a:hover,
+    .menu button:hover {
+      background: rgba(255,255,255,0.12);
+      color: #f0c96a;
     }
 
     .hero {
@@ -80,22 +88,6 @@
       margin: 0 auto 30px;
       line-height: 1.6;
       color: #f1f1f1;
-    }
-
-    .hero .btn {
-      display: inline-block;
-      padding: 14px 28px;
-      background: #d4af37;
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
-
-    .hero .btn:hover {
-      background: #f0c94d;
-      transform: scale(1.05);
     }
 
     .section-title {
@@ -118,6 +110,7 @@
       box-shadow: 0 6px 20px rgba(0,0,0,0.35);
       backdrop-filter: blur(4px);
       transition: transform 0.3s ease;
+      cursor: pointer;
     }
 
     .card:hover {
@@ -147,25 +140,97 @@
       color: #f2f2f2;
     }
 
+    .panel-box {
+      display: none;
+      margin: 30px auto;
+      background: rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 25px;
+      max-width: 900px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+      backdrop-filter: blur(6px);
+    }
+
+    .panel-box.active {
+      display: block;
+    }
+
+    .panel-box h2 {
+      margin-bottom: 18px;
+      color: #f5d77a;
+    }
+
+    .panel-box p {
+      line-height: 1.7;
+      color: #f4f4f4;
+      margin-bottom: 14px;
+    }
+
+    .panel-box img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .back-btn,
+    .save-btn {
+      margin-top: 16px;
+      background: #d4af37;
+      color: black;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover,
+    .save-btn:hover {
+      background: #f0c94d;
+    }
+
+    .admin-form label {
+      display: block;
+      margin: 15px 0 8px;
+      font-weight: bold;
+      color: #f5d77a;
+    }
+
+    .admin-form select,
+    .admin-form input,
+    .admin-form textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .admin-form textarea {
+      min-height: 180px;
+      resize: vertical;
+    }
+
     .footer {
       text-align: center;
       padding: 30px 20px;
       border-top: 1px solid rgba(255,255,255,0.2);
       color: #ddd;
       font-size: 0.95rem;
+      margin-top: 40px;
     }
 
     @media (max-width: 768px) {
       .hero h1 {
-        font-size: 2.3rem;
+        font-size: 2.2rem;
       }
 
       .hero p {
         font-size: 1rem;
-      }
-
-      .logo {
-        font-size: 1.6rem;
       }
 
       .topbar {
@@ -186,54 +251,91 @@
       <header class="topbar">
         <div class="logo">EL UMBRAL</div>
         <nav class="menu">
-          <a href="#">Inicio</a>
-          <a href="#">Expedientes</a>
-          <a href="#">Misterios</a>
-          <a href="#">Contacto</a>
+          <a href="#" onclick="showHome()">Inicio</a>
+          <a href="#" onclick="openExpediente('ovni')">OVNI</a>
+          <a href="#" onclick="openExpediente('civilizaciones')">Civilizaciones</a>
+          <a href="#" onclick="openExpediente('muerte')">Más allá</a>
+          <button onclick="toggleAdmin()">Administrador</button>
         </nav>
       </header>
 
-      <section class="hero">
+      <section class="hero" id="homeSection">
         <h1>Bienvenido a EL UMBRAL</h1>
         <p>
           Un espacio dedicado a los grandes enigmas, fenómenos inexplicables, civilizaciones perdidas,
           vida después de la muerte, ovnis, abducciones y todo aquello que desafía la lógica.
         </p>
-        <a href="#" class="btn">Explorar expedientes</a>
       </section>
 
-      <h2 class="section-title">Expedientes destacados</h2>
+      <section id="cardsSection">
+        <h2 class="section-title">Expedientes destacados</h2>
 
-      <section class="cards">
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200&auto=format&fit=crop" alt="Ovnis">
-          <div class="card-content">
-            <h3>Fenómeno OVNI</h3>
-            <p>
-              Avistamientos, documentos desclasificados y testimonios de encuentros cercanos en distintas partes del mundo.
-            </p>
-          </div>
-        </article>
+        <div class="cards">
+          <article class="card" onclick="openExpediente('ovni')">
+            <img id="img-ovni" src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200&auto=format&fit=crop" alt="Ovnis">
+            <div class="card-content">
+              <h3 id="titulo-ovni">Fenómeno OVNI</h3>
+              <p id="resumen-ovni">
+                Avistamientos, documentos desclasificados y testimonios de encuentros cercanos.
+              </p>
+            </div>
+          </article>
 
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=1200&auto=format&fit=crop" alt="Misterio antiguo">
-          <div class="card-content">
-            <h3>Civilizaciones perdidas</h3>
-            <p>
-              Enigmas arqueológicos, construcciones imposibles y secretos que podrían reescribir la historia.
-            </p>
-          </div>
-        </article>
+          <article class="card" onclick="openExpediente('civilizaciones')">
+            <img id="img-civilizaciones" src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=1200&auto=format&fit=crop" alt="Civilizaciones perdidas">
+            <div class="card-content">
+              <h3 id="titulo-civilizaciones">Civilizaciones perdidas</h3>
+              <p id="resumen-civilizaciones">
+                Enigmas arqueológicos, construcciones imposibles y secretos de la antigüedad.
+              </p>
+            </div>
+          </article>
 
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Vida después de la muerte">
-          <div class="card-content">
-            <h3>Más allá de la muerte</h3>
-            <p>
-              Experiencias cercanas a la muerte, apariciones y casos reales que siguen sin explicación definitiva.
-            </p>
-          </div>
-        </article>
+          <article class="card" onclick="openExpediente('muerte')">
+            <img id="img-muerte" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Más allá de la muerte">
+            <div class="card-content">
+              <h3 id="titulo-muerte">Más allá de la muerte</h3>
+              <p id="resumen-muerte">
+                Experiencias cercanas a la muerte, apariciones y casos inexplicables.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel-box" id="expedienteBox">
+        <img id="expedienteImagen" src="" alt="">
+        <h2 id="expedienteTitulo"></h2>
+        <p id="expedienteTexto"></p>
+        <button class="back-btn" onclick="showHome()">Volver al inicio</button>
+      </section>
+
+      <section class="panel-box" id="adminPanel">
+        <h2>Panel de Administrador</h2>
+        <p>Aquí puedes cambiar el contenido visible de cada expediente sin tocar el HTML del diseño.</p>
+
+        <div class="admin-form">
+          <label for="expedienteSelect">Selecciona expediente</label>
+          <select id="expedienteSelect" onchange="loadAdminData()">
+            <option value="ovni">Fenómeno OVNI</option>
+            <option value="civilizaciones">Civilizaciones perdidas</option>
+            <option value="muerte">Más allá de la muerte</option>
+          </select>
+
+          <label for="adminTitulo">Título</label>
+          <input type="text" id="adminTitulo">
+
+          <label for="adminResumen">Resumen corto</label>
+          <input type="text" id="adminResumen">
+
+          <label for="adminImagen">URL de la imagen</label>
+          <input type="text" id="adminImagen">
+
+          <label for="adminTexto">Texto completo del expediente</label>
+          <textarea id="adminTexto"></textarea>
+
+          <button class="save-btn" onclick="saveExpediente()">Guardar cambios</button>
+        </div>
       </section>
 
       <footer class="footer">
@@ -242,5 +344,86 @@
 
     </div>
   </div>
+
+  <script>
+    const expedientes = {
+      ovni: {
+        titulo: "Fenómeno OVNI",
+        resumen: "Avistamientos, documentos desclasificados y testimonios de encuentros cercanos.",
+        imagen: "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200&auto=format&fit=crop",
+        texto: "El fenómeno OVNI recoge miles de testimonios en todo el mundo sobre luces extrañas, objetos voladores no identificados y supuestos contactos. En este expediente puedes añadir casos históricos, documentos oficiales, fotografías, teorías y análisis propios."
+      },
+      civilizaciones: {
+        titulo: "Civilizaciones perdidas",
+        resumen: "Enigmas arqueológicos, construcciones imposibles y secretos de la antigüedad.",
+        imagen: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=1200&auto=format&fit=crop",
+        texto: "Las civilizaciones perdidas despiertan preguntas sobre conocimientos antiguos, ciudades desaparecidas y tecnologías adelantadas a su tiempo. Aquí puedes incorporar información sobre Atlántida, Lemuria, Egipto, Göbekli Tepe o cualquier otro misterio histórico."
+      },
+      muerte: {
+        titulo: "Más allá de la muerte",
+        resumen: "Experiencias cercanas a la muerte, apariciones y casos inexplicables.",
+        imagen: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop",
+        texto: "Este expediente está dedicado a testimonios sobre experiencias cercanas a la muerte, visiones, apariciones y posibles señales del más allá. Puedes incluir relatos, investigaciones, opiniones de expertos y casos famosos."
+      }
+    };
+
+    function renderCards() {
+      for (const key in expedientes) {
+        document.getElementById("titulo-" + key).textContent = expedientes[key].titulo;
+        document.getElementById("resumen-" + key).textContent = expedientes[key].resumen;
+        document.getElementById("img-" + key).src = expedientes[key].imagen;
+      }
+    }
+
+    function openExpediente(tipo) {
+      document.getElementById("homeSection").style.display = "none";
+      document.getElementById("cardsSection").style.display = "none";
+      document.getElementById("adminPanel").classList.remove("active");
+
+      document.getElementById("expedienteTitulo").textContent = expedientes[tipo].titulo;
+      document.getElementById("expedienteTexto").textContent = expedientes[tipo].texto;
+      document.getElementById("expedienteImagen").src = expedientes[tipo].imagen;
+      document.getElementById("expedienteImagen").alt = expedientes[tipo].titulo;
+
+      document.getElementById("expedienteBox").classList.add("active");
+    }
+
+    function showHome() {
+      document.getElementById("homeSection").style.display = "block";
+      document.getElementById("cardsSection").style.display = "block";
+      document.getElementById("expedienteBox").classList.remove("active");
+      document.getElementById("adminPanel").classList.remove("active");
+    }
+
+    function toggleAdmin() {
+      document.getElementById("homeSection").style.display = "none";
+      document.getElementById("cardsSection").style.display = "none";
+      document.getElementById("expedienteBox").classList.remove("active");
+      document.getElementById("adminPanel").classList.add("active");
+      loadAdminData();
+    }
+
+    function loadAdminData() {
+      const tipo = document.getElementById("expedienteSelect").value;
+      document.getElementById("adminTitulo").value = expedientes[tipo].titulo;
+      document.getElementById("adminResumen").value = expedientes[tipo].resumen;
+      document.getElementById("adminImagen").value = expedientes[tipo].imagen;
+      document.getElementById("adminTexto").value = expedientes[tipo].texto;
+    }
+
+    function saveExpediente() {
+      const tipo = document.getElementById("expedienteSelect").value;
+
+      expedientes[tipo].titulo = document.getElementById("adminTitulo").value;
+      expedientes[tipo].resumen = document.getElementById("adminResumen").value;
+      expedientes[tipo].imagen = document.getElementById("adminImagen").value;
+      expedientes[tipo].texto = document.getElementById("adminTexto").value;
+
+      renderCards();
+      alert("Cambios aplicados correctamente en este momento.");
+    }
+
+    renderCards();
+  </script>
 </body>
 </html>
