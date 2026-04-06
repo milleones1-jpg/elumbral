@@ -63,6 +63,7 @@
       border-radius: 8px;
       cursor: pointer;
       transition: 0.3s;
+      font-family: inherit;
     }
 
     .menu a:hover,
@@ -158,12 +159,14 @@
     .panel-box h2 {
       margin-bottom: 18px;
       color: #f5d77a;
+      line-height: 1.3;
     }
 
     .panel-box p {
       line-height: 1.7;
       color: #f4f4f4;
       margin-bottom: 14px;
+      white-space: pre-line;
     }
 
     .panel-box img {
@@ -172,6 +175,7 @@
       object-fit: cover;
       border-radius: 12px;
       margin-bottom: 20px;
+      display: block;
     }
 
     .back-btn,
@@ -185,6 +189,7 @@
       font-weight: bold;
       cursor: pointer;
       transition: 0.3s;
+      font-family: inherit;
     }
 
     .back-btn:hover,
@@ -208,6 +213,7 @@
       border: none;
       outline: none;
       font-size: 1rem;
+      font-family: inherit;
     }
 
     .admin-form textarea {
@@ -251,10 +257,14 @@
       <header class="topbar">
         <div class="logo">EL UMBRAL</div>
         <nav class="menu">
-          <a href="#" onclick="showHome()">Inicio</a>
-          <a href="#" onclick="openExpediente('ovni')">OVNI</a>
-          <a href="#" onclick="openExpediente('civilizaciones')">Civilizaciones</a>
-          <a href="#" onclick="openExpediente('muerte')">Más allá</a>
+          <a href="#" onclick="showHome(); return false;">Inicio</a>
+          <a href="#" onclick="openExpediente('ovni'); return false;">OVNI</a>
+          <a href="#" onclick="openExpediente('civilizaciones'); return false;">Civilizaciones</a>
+          <a href="#" onclick="openExpediente('muerte'); return false;">Más allá</a>
+          <a href="#" onclick="openExpediente('paranormal'); return false;">Paranormal</a>
+          <a href="#" onclick="openExpediente('tierra'); return false;">Tierra plana</a>
+          <a href="#" onclick="openExpediente('matrix'); return false;">Matrix</a>
+          <a href="#" onclick="openExpediente('lectores'); return false;">Lectores</a>
           <button onclick="toggleAdmin()">Administrador</button>
         </nav>
       </header>
@@ -263,7 +273,7 @@
         <h1>Bienvenido a EL UMBRAL</h1>
         <p>
           Un espacio dedicado a los grandes enigmas, fenómenos inexplicables, civilizaciones perdidas,
-          vida después de la muerte, ovnis, abducciones y todo aquello que desafía la lógica.
+          vida después de la muerte, ovnis, razas alienígenas, teorías alternativas y testimonios de nuestros lectores.
         </p>
       </section>
 
@@ -272,11 +282,11 @@
 
         <div class="cards">
           <article class="card" onclick="openExpediente('ovni')">
-            <img id="img-ovni" src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200&auto=format&fit=crop" alt="Ovnis">
+            <img id="img-ovni" src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200&auto=format&fit=crop" alt="Fenómeno OVNI / Razas alienígenas">
             <div class="card-content">
-              <h3 id="titulo-ovni">Fenómeno OVNI</h3>
+              <h3 id="titulo-ovni">Fenómeno OVNI / Razas alienígenas</h3>
               <p id="resumen-ovni">
-                Avistamientos, documentos desclasificados y testimonios de encuentros cercanos.
+                Avistamientos, contactos y teorías sobre civilizaciones extraterrestres.
               </p>
             </div>
           </article>
@@ -300,6 +310,46 @@
               </p>
             </div>
           </article>
+
+          <article class="card" onclick="openExpediente('paranormal')">
+            <img id="img-paranormal" src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1200&auto=format&fit=crop" alt="Fenómenos paranormales">
+            <div class="card-content">
+              <h3 id="titulo-paranormal">Fenómenos paranormales</h3>
+              <p id="resumen-paranormal">
+                Casas encantadas, presencias y sucesos inexplicables.
+              </p>
+            </div>
+          </article>
+
+          <article class="card" onclick="openExpediente('tierra')">
+            <img id="img-tierra" src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1200&auto=format&fit=crop" alt="Tierra plana">
+            <div class="card-content">
+              <h3 id="titulo-tierra">Tierra plana</h3>
+              <p id="resumen-tierra">
+                Teorías alternativas sobre la forma de nuestro mundo.
+              </p>
+            </div>
+          </article>
+
+          <article class="card" onclick="openExpediente('matrix')">
+            <img id="img-matrix" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop" alt="La Matrix o el juego de la vida">
+            <div class="card-content">
+              <h3 id="titulo-matrix">La Matrix o el juego de la vida</h3>
+              <p id="resumen-matrix">
+                ¿Vivimos en una simulación? ¿Es la vida un juego?
+              </p>
+            </div>
+          </article>
+
+          <article class="card" onclick="openExpediente('lectores')">
+            <img id="img-lectores" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop" alt="Historias de nuestros lectores">
+            <div class="card-content">
+              <h3 id="titulo-lectores">Historias de nuestros lectores</h3>
+              <p id="resumen-lectores">
+                Relatos reales enviados por nuestra comunidad.
+              </p>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -312,14 +362,20 @@
 
       <section class="panel-box" id="adminPanel">
         <h2>Panel de Administrador</h2>
-        <p>Aquí puedes cambiar el contenido visible de cada expediente sin tocar el HTML del diseño.</p>
+        <p>
+          Aquí puedes cambiar el contenido visible de cada expediente sin tocar el diseño de la web.
+        </p>
 
         <div class="admin-form">
           <label for="expedienteSelect">Selecciona expediente</label>
           <select id="expedienteSelect" onchange="loadAdminData()">
-            <option value="ovni">Fenómeno OVNI</option>
+            <option value="ovni">Fenómeno OVNI / Razas alienígenas</option>
             <option value="civilizaciones">Civilizaciones perdidas</option>
             <option value="muerte">Más allá de la muerte</option>
+            <option value="paranormal">Fenómenos paranormales</option>
+            <option value="tierra">Tierra plana</option>
+            <option value="matrix">La Matrix o el juego de la vida</option>
+            <option value="lectores">Historias de nuestros lectores</option>
           </select>
 
           <label for="adminTitulo">Título</label>
@@ -348,30 +404,61 @@
   <script>
     const expedientes = {
       ovni: {
-        titulo: "Fenómeno OVNI",
-        resumen: "Avistamientos, documentos desclasificados y testimonios de encuentros cercanos.",
+        titulo: "Fenómeno OVNI / Razas alienígenas",
+        resumen: "Avistamientos, contactos y teorías sobre civilizaciones extraterrestres.",
         imagen: "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1200&auto=format&fit=crop",
-        texto: "El fenómeno OVNI recoge miles de testimonios en todo el mundo sobre luces extrañas, objetos voladores no identificados y supuestos contactos. En este expediente puedes añadir casos históricos, documentos oficiales, fotografías, teorías y análisis propios."
+        texto: "El fenómeno OVNI incluye avistamientos, contactos y teorías sobre civilizaciones extraterrestres. En este apartado puedes documentar razas alienígenas, casos reales, informes desclasificados y encuentros cercanos registrados en todo el mundo."
       },
       civilizaciones: {
         titulo: "Civilizaciones perdidas",
         resumen: "Enigmas arqueológicos, construcciones imposibles y secretos de la antigüedad.",
         imagen: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=1200&auto=format&fit=crop",
-        texto: "Las civilizaciones perdidas despiertan preguntas sobre conocimientos antiguos, ciudades desaparecidas y tecnologías adelantadas a su tiempo. Aquí puedes incorporar información sobre Atlántida, Lemuria, Egipto, Göbekli Tepe o cualquier otro misterio histórico."
+        texto: "Las civilizaciones perdidas despiertan preguntas sobre conocimientos antiguos, ciudades desaparecidas y tecnologías adelantadas a su tiempo. Aquí puedes incorporar información sobre la Atlántida, Lemuria, Egipto, Göbekli Tepe o cualquier otro misterio histórico."
       },
       muerte: {
         titulo: "Más allá de la muerte",
         resumen: "Experiencias cercanas a la muerte, apariciones y casos inexplicables.",
         imagen: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop",
         texto: "Este expediente está dedicado a testimonios sobre experiencias cercanas a la muerte, visiones, apariciones y posibles señales del más allá. Puedes incluir relatos, investigaciones, opiniones de expertos y casos famosos."
+      },
+      paranormal: {
+        titulo: "Fenómenos paranormales",
+        resumen: "Casas encantadas, presencias y sucesos inexplicables.",
+        imagen: "https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1200&auto=format&fit=crop",
+        texto: "Aquí puedes incluir historias de casas encantadas, apariciones, objetos que se mueven solos, psicofonías, grabaciones extrañas y experiencias personales relacionadas con fenómenos paranormales."
+      },
+      tierra: {
+        titulo: "Tierra plana",
+        resumen: "Teorías alternativas sobre la forma de nuestro mundo.",
+        imagen: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1200&auto=format&fit=crop",
+        texto: "Este apartado recoge teorías, argumentos y debates sobre la posibilidad de que la Tierra tenga una forma diferente a la aceptada oficialmente. Aquí puedes añadir comparativas, vídeos, hipótesis y análisis."
+      },
+      matrix: {
+        titulo: "La Matrix o el juego de la vida",
+        resumen: "¿Vivimos en una simulación? ¿Es la vida un juego?",
+        imagen: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop",
+        texto: "Teorías filosóficas y tecnológicas sobre la realidad, la simulación, la inteligencia artificial y el sentido de la existencia. Este espacio puede servir para reunir ideas sobre si vivimos dentro de una especie de Matrix."
+      },
+      lectores: {
+        titulo: "Historias de nuestros lectores",
+        resumen: "Relatos reales enviados por nuestra comunidad.",
+        imagen: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop",
+        texto: "Espacio para que los visitantes compartan sus propias experiencias paranormales, avistamientos o sucesos inexplicables. Aquí puedes reunir testimonios reales enviados por la comunidad de EL UMBRAL."
       }
     };
 
     function renderCards() {
       for (const key in expedientes) {
-        document.getElementById("titulo-" + key).textContent = expedientes[key].titulo;
-        document.getElementById("resumen-" + key).textContent = expedientes[key].resumen;
-        document.getElementById("img-" + key).src = expedientes[key].imagen;
+        const titulo = document.getElementById("titulo-" + key);
+        const resumen = document.getElementById("resumen-" + key);
+        const imagen = document.getElementById("img-" + key);
+
+        if (titulo) titulo.textContent = expedientes[key].titulo;
+        if (resumen) resumen.textContent = expedientes[key].resumen;
+        if (imagen) {
+          imagen.src = expedientes[key].imagen;
+          imagen.alt = expedientes[key].titulo;
+        }
       }
     }
 
@@ -386,6 +473,7 @@
       document.getElementById("expedienteImagen").alt = expedientes[tipo].titulo;
 
       document.getElementById("expedienteBox").classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     function showHome() {
@@ -393,6 +481,7 @@
       document.getElementById("cardsSection").style.display = "block";
       document.getElementById("expedienteBox").classList.remove("active");
       document.getElementById("adminPanel").classList.remove("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     function toggleAdmin() {
@@ -401,6 +490,7 @@
       document.getElementById("expedienteBox").classList.remove("active");
       document.getElementById("adminPanel").classList.add("active");
       loadAdminData();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     function loadAdminData() {
@@ -420,7 +510,7 @@
       expedientes[tipo].texto = document.getElementById("adminTexto").value;
 
       renderCards();
-      alert("Cambios aplicados correctamente en este momento.");
+      alert("Cambios aplicados correctamente.");
     }
 
     renderCards();
